@@ -39,6 +39,28 @@ body {
   scrollbar-color: #888 #f1f1f1;
 }
 
+.MuiRating-root .MuiRating-iconFilled {
+  color: $buttonBackground;
+}
+
+.MuiRating-root .MuiRating-iconEmpty {
+  border-color: $buttonBackground;
+}
+
+.MuiButton-root {
+  background-color: $buttonBackground !important;
+  border-radius: 25px !important;
+  padding: 10px 25px !important;
+  text-transform: none !important;
+  color: $black !important;
+  font-size: 1.2em !important;
+  transition: background-color 0.3s ease !important;
+  font-weight: bold !important;
+  &:hover {
+    background-color: $primary !important;
+  }
+}
+
 .primary {
   color: $primary;
 }
@@ -79,6 +101,12 @@ body {
   width: 250px;
 }
 
+@media (max-width: 1813px) {
+  body {
+    font-size: 26px;
+  }
+}
+
 @media (max-width: 1678px) {
   body {
     font-size: 22px;
@@ -89,12 +117,4 @@ body {
   body {
     font-size: 20px;
   }
-}
-
-.MuiRating-root .MuiRating-iconFilled {
-  color: $buttonBackground;
-}
-
-.MuiRating-root .MuiRating-iconEmpty {
-  border-color: $buttonBackground;
 }

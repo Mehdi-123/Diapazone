@@ -53,7 +53,7 @@ const TestimonialsCarousel = () => {
               readOnly
               className="rating"
             />
-            <Typography variant="h4" className="black p-0-90">
+            <Typography variant="h4" className="feedback-text">
               {testimonial.feedback}
             </Typography>
           </Box>
@@ -98,7 +98,9 @@ const Home = () => {
             <Typography variant="h3" className="red bold mb-70">
               Une assurance adaptée à votre tempo financier
             </Typography>
-            <Button className="button bold">J'obtiens mon tarif</Button>
+            <Box className="ml-10-per">
+              <Button>J'obtiens mon tarif</Button>
+            </Box>
           </Box>
         </Box>
         <Box className="px-100">
@@ -125,7 +127,7 @@ const Home = () => {
 
             <Box className="download-app-container">
               <Box className="mb-30">
-                <Typography variant="h3" className="medium">
+                <Typography variant="h3" className="download-text">
                   Téléchargez l'application Diapazone Assurances
                 </Typography>
                 <Typography variant="h3" className="medium">
@@ -150,7 +152,7 @@ const Home = () => {
             <Box className="mb-15">
               <GreenTitle title="Ce que nos clients pensent" />
             </Box>
-              <Trustpilot />
+            <Trustpilot />
             <Box className="px-60">
               <TestimonialsCarousel />
             </Box>
@@ -165,7 +167,7 @@ const Home = () => {
             <Box className="mb-30">
               <GreenTitle title="On répond à vos questions!" />
             </Box>
-            <Typography variant="h3" className="mb-30">
+            <Typography variant="h3" className="before-accordion-title mb-30">
               L'assurance peut sembler très compliquée à première vue. C'est
               pour cela que nous mettons à votre disposition cette FAQ qui, on
               le souhaite, répondra à toutes vos interrogations !

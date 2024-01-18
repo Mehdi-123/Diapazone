@@ -12,12 +12,13 @@ const Wrapper = styled(Box)`
         margin-top: 50px;
         margin-bottom: 15px;
       }
-      .ml-auto {
+      .accordion-dash {
         margin-left: auto;
+        margin-top: 20px;
       }
     }
     .accordion-content {
-      line-height: 1.8;
+      line-height: 1.5;
     }
     .pt-20 {
       padding-top: 20px;

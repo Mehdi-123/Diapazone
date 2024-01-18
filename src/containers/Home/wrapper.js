@@ -28,6 +28,15 @@ const Wrapper = styled(Box)`
   .mb-3 {
     margin-bottom: 3px;
   }
+  .ml-10-per {
+    margin-left: 10%;
+  }
+  .before-accordion-title {
+    line-height: 1.5;
+  }
+  .download-text {
+    line-height: 1.5;
+  }
   .representative-bloc-container {
     .lady-img-box {
       width: 100%;
@@ -47,14 +56,15 @@ const Wrapper = styled(Box)`
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
+      transform: translate(-51%, -50%);
       width: 100%;
       .rating {
         font-size: 1em;
         margin-bottom: 15px;
       }
-      .p-0-90 {
-        padding: 0 90px;
+      .feedback-text {
+        padding: 0 120px;
+        color: ${colors.black};
       }
       .mb-10 {
         margin-bottom: 10px;
@@ -112,7 +122,7 @@ const Wrapper = styled(Box)`
     }
   }
   .identity-cercle {
-    width: 550px;
+    width: 100%;
   }
   .mb-20 {
     margin-bottom: 20px;
@@ -120,27 +130,24 @@ const Wrapper = styled(Box)`
   .mb-70 {
     margin-bottom: 70px;
   }
-  .button {
-    background-color: ${colors.buttonBackground};
-    border-radius: 25px;
-    padding: 10px 25px;
-    text-transform: none;
-    color: ${colors.black};
-    font-size: 1.2em;
-    transition: background-color 0.3s ease;
-    &:hover {
-      background-color: ${colors.primary};
-    }
-  }
   .representative-bloc {
     margin: 10% 5% 38% 45%;
+  }
+  @media (max-width: 1813px) {
+    .identity-cercle {
+      width: 80%;
+    }
   }
   @media (max-width: 1678px) {
     .representative-bloc {
       margin: 10% 10% 35% 45%;
     }
-    .identity-cercle {
-      width: 350px;
+    .slider-box-container {
+      .text-container {
+        .feedback-text {
+          padding: 0 90px;
+        }
+      }
     }
   }
   @media (max-width: 1476px) {

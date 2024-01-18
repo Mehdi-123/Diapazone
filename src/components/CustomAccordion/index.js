@@ -50,7 +50,7 @@ const CustomAccordion = ({ accordionData }) => {
                 {item.title}
               </Typography>
               {expandedAccordion === index ? (
-                <Box className="ml-auto">
+                <Box className="accordion-dash">
                   <AccordionDash width={20} />
                 </Box>
               ) : null}
