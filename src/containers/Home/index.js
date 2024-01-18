@@ -2,86 +2,31 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
 import { Box, Button, Typography, Rating } from "@mui/material";
 
+import Footer from "containers/Footer";
 import GreenTitle from "components/GreenTitle";
 import LadyWithBackground from "assets/images/lady-with-background.png";
 import MockupIphone from "assets/images/mockup-iphone.png";
-import { ReactComponent as Like } from "assets/images/like.svg";
-import { ReactComponent as HelpCenter } from "assets/images/help-center.svg";
 import { ReactComponent as AppStoreBadge } from "assets/images/app-store-badge.svg";
 import { ReactComponent as GooglePlayBadge } from "assets/images/google-play-badge.svg";
 import { ReactComponent as LeftArrow } from "assets/images/left-arrow.svg";
 import { ReactComponent as RightArrow } from "assets/images/right-arrow.svg";
 import { ReactComponent as IdentityCercle } from "assets/images/identity-cercle.svg";
-import { ReactComponent as MoneyPig } from "assets/images/money-pig.svg";
-import { colors } from "theme/colors";
+import { ReactComponent as SmallIdentityCercle } from "assets/images/small-identity-cercle.svg";
+import { ReactComponent as Trustpilot } from "assets/images/trustpilot.svg";
 
+import {
+  accordionData,
+  reasonsToChoose,
+  steps,
+  testimonials,
+} from "./staticData";
 import Wrapper from "./wrapper";
-
-const reasonsToChoose = [
-  {
-    icon: <Like />,
-    title: "Service 100% Gratuit",
-    description: ["0 commission", "0 frais caché"],
-  },
-  {
-    icon: <MoneyPig />,
-    title: "450 euros* d'économies",
-    description: [
-      "Les tarifs les plus bas sur le marché",
-      "jusqu'à 450 euros* d'économies",
-    ],
-  },
-  {
-    icon: <HelpCenter />,
-    title: "Accompagnement 7/7",
-    description: [
-      "Un gestionnaire santé dédié et",
-      "suivi continu de votre dossier",
-    ],
-  },
-];
+import CustomAccordion from "components/CustomAccordion";
 
 const TestimonialsCarousel = () => {
-  const testimonials = [
-    {
-      author: "Mehdi Harit",
-      date: "06.2023",
-      rating: 5, // Rating out of 5 stars
-      feedback:
-        "Très bon contact avec mon conseiller, les explications sont claires et il n'a pas hésité à prendre du temps pour que tout soit bien clair",
-    },
-    {
-      author: "Mehdi Harit",
-      date: "06.2023",
-      rating: 4,
-      feedback:
-        "Très bon contact avec mon conseiller, les explications sont claires et il n'a pas hésité à prendre du temps pour que tout soit bien clair",
-    },
-    {
-      author: "Mehdi Harit",
-      date: "06.2023",
-      rating: 3,
-      feedback:
-        "Très bon contact avec mon conseiller, les explications sont claires et il n'a pas hésité à prendre du temps pour que tout soit bien clair",
-    },
-    {
-      author: "Mehdi Harit",
-      date: "06.2023",
-      rating: 5,
-      feedback:
-        "Très bon contact avec mon conseiller, les explications sont claires et il n'a pas hésité à prendre du temps pour que tout soit bien clair",
-    },
-    {
-      author: "Mehdi Harit",
-      date: "06.2023",
-      rating: 4,
-      feedback:
-        "Très bon contact avec mon conseiller, les explications sont claires et il n'a pas hésité à prendre du temps pour que tout soit bien clair",
-    },
-  ];
-
   const settings = {
     dots: false,
     infinite: true,
@@ -95,49 +40,20 @@ const TestimonialsCarousel = () => {
   return (
     <Slider {...settings}>
       {testimonials.map((testimonial, index) => (
-        <Box sx={{ textAlign: "center", position: "relative" }} key={index}>
+        <Box className="slider-box-container" key={index}>
           <IdentityCercle className="identity-cercle" />
-          <Box
-            sx={{
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
-              width: "100%",
-            }}
-          >
-            <Typography
-              sx={{ marginBottom: "10px" }}
-              variant="h3"
-              className="black medium"
-            >
+          <Box className="text-container">
+            <Typography variant="h3" className="black medium mb-10">
               <span className="bold">{testimonial.author}</span> |{" "}
               {testimonial.date}
             </Typography>
-            <style>
-              {`
-                .MuiRating-root .MuiRating-iconFilled {
-                  color: ${colors.buttonBackground};
-                }
-                .MuiRating-root .MuiRating-iconEmpty {
-                  border-color: ${colors.buttonBackground};
-                }
-              `}
-            </style>
             <Rating
               name={`rating-${index}`}
               value={testimonial.rating}
               readOnly
-              sx={{
-                fontSize: "1em",
-                marginBottom: "15px",
-              }}
+              className="rating"
             />
-            <Typography
-              sx={{ padding: "0 90px" }}
-              variant="h4"
-              className="black"
-            >
+            <Typography variant="h4" className="black p-0-90">
               {testimonial.feedback}
             </Typography>
           </Box>
@@ -147,59 +63,59 @@ const TestimonialsCarousel = () => {
   );
 };
 
+const ActionSteps = () => {
+  return (
+    <Box className="action-steps-container">
+      {steps.map((step, index) => (
+        <Box key={index} className="box-container">
+          <SmallIdentityCercle className="small-identity-cercle" />
+          <Box className="text-container">
+            <Typography variant="h1" className="primary bold">
+              {index + 1}
+            </Typography>
+          </Box>
+          <Typography variant="h4" className="bold mt-20">
+            {step}
+          </Typography>
+        </Box>
+      ))}
+    </Box>
+  );
+};
+
 const Home = () => {
   return (
     <Wrapper>
       <Box>
-        <Box className="lady-img">
-          <img
-            src={LadyWithBackground}
-            alt="lady"
-            style={{ width: "100%", height: "auto" }}
-          />
+        <Box className="representative-bloc-container">
+          <Box className="lady-img-box">
+            <img src={LadyWithBackground} alt="lady" className="img" />
+          </Box>
+          <Box className="representative-bloc">
+            <Typography variant="h2" className="primary bold mb-20">
+              L'accord parfait entre économies et garanties personnalisées !
+            </Typography>
+            <Typography variant="h3" className="red bold mb-70">
+              Une assurance adaptée à votre tempo financier
+            </Typography>
+            <Button className="button bold">J'obtiens mon tarif</Button>
+          </Box>
         </Box>
-        <Box className="representative-bloc">
-          <Typography variant="h2" className="primary bold mb-20">
-            L'accord parfait entre économies et garanties personnalisées !
-          </Typography>
-          <Typography variant="h3" className="red bold mb-70">
-            Une assurance adaptée à votre tempo financier
-          </Typography>
-          <Button className="button bold">J'obtiens mon tarif</Button>
-        </Box>
-        <Box sx={{ paddingX: "100px" }}>
-          <Box sx={{ marginBottom: "100px" }}>
-            <Box sx={{ marginBottom: "40px" }}>
+        <Box className="px-100">
+          <Box className="mb-100">
+            <Box className="mb-40">
               <GreenTitle title="Pourquoi nous choisir ?" />
             </Box>
 
-            <Box
-              sx={{
-                display: "flex",
-                justifyContent: "space-between",
-                textAlign: "center",
-                paddingX: "100px",
-                marginBottom: "120px",
-                alignItems: "center",
-              }}
-            >
+            <Box className="reasons-container">
               {reasonsToChoose.map((reason, index) => (
                 <Box key={index}>
-                  <Box sx={{ marginBottom: "30px" }}>{reason.icon}</Box>
-                  <Typography
-                    sx={{ marginBottom: "7px" }}
-                    variant="h3"
-                    className="secondary bold"
-                  >
+                  <Box className="mb-30">{reason.icon}</Box>
+                  <Typography variant="h3" className="secondary bold mb-7">
                     {reason.title}
                   </Typography>
                   {reason.description.map((desc, i) => (
-                    <Typography
-                      sx={{ marginBottom: "3px" }}
-                      key={i}
-                      variant="h4"
-                      className="bold"
-                    >
+                    <Typography key={i} variant="h4" className="bold mb-3">
                       {desc}
                     </Typography>
                   ))}
@@ -207,47 +123,58 @@ const Home = () => {
               ))}
             </Box>
 
-            <Box
-              sx={{
-                background: colors.background,
-                borderRadius: "50px",
-                padding: " 40px 80px",
-              }}
-            >
-              <Box sx={{ position: "relative" }}>
-                <Box sx={{ marginBottom: "30px" }}>
-                  <Typography variant="h3" className="medium">
-                    Téléchargez l'application Diapazone Assurances
-                  </Typography>
-                  <Typography variant="h3" className="medium">
-                    et suivie la vie de votre contrat santé directement depuis
-                    votre smartphone
-                  </Typography>
-                </Box>
-                <Box
-                  sx={{ display: "flex", alignItems: "center", gap: "30px" }}
-                >
-                  <GooglePlayBadge />
-                  <AppStoreBadge />
-                </Box>
-                <Box sx={{ position: "absolute", right: "3%", bottom: -40 }}>
-                  <img
-                    src={MockupIphone}
-                    alt="mockup-iphone"
-                    style={{ width: "220px", height: "auto" }}
-                  />
-                </Box>
+            <Box className="download-app-container">
+              <Box className="mb-30">
+                <Typography variant="h3" className="medium">
+                  Téléchargez l'application Diapazone Assurances
+                </Typography>
+                <Typography variant="h3" className="medium">
+                  et suivie la vie de votre contrat santé directement depuis
+                  votre smartphone
+                </Typography>
+              </Box>
+              <Box className="download-btns-container">
+                <GooglePlayBadge />
+                <AppStoreBadge />
+              </Box>
+              <Box className="mockup-phone-container">
+                <img
+                  src={MockupIphone}
+                  alt="mockup-iphone"
+                  className="mockup-phone-img"
+                />
               </Box>
             </Box>
           </Box>
-
-          <Box sx={{ marginBottom: "120px" }}>
-            <Box sx={{ marginBottom: "40px" }}>
+          <Box className="mb-100">
+            <Box className="mb-15">
               <GreenTitle title="Ce que nos clients pensent" />
             </Box>
-            <TestimonialsCarousel />
+              <Trustpilot />
+            <Box className="px-60">
+              <TestimonialsCarousel />
+            </Box>
+          </Box>
+          <Box className="mb-100">
+            <Box className="mb-40">
+              <GreenTitle title="Passez à l'action" />
+            </Box>
+            <ActionSteps />
+          </Box>
+          <Box className="mb-100">
+            <Box className="mb-30">
+              <GreenTitle title="On répond à vos questions!" />
+            </Box>
+            <Typography variant="h3" className="mb-30">
+              L'assurance peut sembler très compliquée à première vue. C'est
+              pour cela que nous mettons à votre disposition cette FAQ qui, on
+              le souhaite, répondra à toutes vos interrogations !
+            </Typography>
+            <CustomAccordion accordionData={accordionData} />
           </Box>
         </Box>
+
+        <Footer />
       </Box>
     </Wrapper>
   );

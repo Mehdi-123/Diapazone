@@ -2,11 +2,11 @@
   "compilerOptions": {
     "baseUrl": "src",
     "paths": {
-      "@components/*": ["components/*"],
-      "@containers/*": ["containers/*"],
-      "@assets/*": ["assets/*"],
-      "@pages/*": ["pages/*"],
-      "@theme/*": ["theme/*"]
+      "components/*": ["components/*"],
+      "containers/*": ["containers/*"],
+      "assets/*": ["assets/*"],
+      "pages/*": ["pages/*"],
+      "theme/*": ["theme/*"]
     }
   },
   "include": ["src/**/*.js"]

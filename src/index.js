@@ -7,7 +7,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import reportWebVitals from "reportWebVitals";
 import App from "App";
 import theme from "theme";
-import "index.css";
+import "index.scss";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 

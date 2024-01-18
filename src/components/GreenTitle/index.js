@@ -1,16 +1,14 @@
 import * as React from "react";
 
-import { Typography } from "@mui/material";
-
-import Wrapper from "./wrapper";
+import { Box, Typography } from "@mui/material";
 
 const GreenTitle = ({ title }) => {
   return (
-    <Wrapper>
-      <Typography variant="h2" className="title bold">
+    <Box>
+      <Typography variant="h2" className="secondary bold">
         {title}
       </Typography>
-    </Wrapper>
+    </Box>
   );
 };
 

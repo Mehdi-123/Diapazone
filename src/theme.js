@@ -10,7 +10,7 @@ const theme = createTheme({
       fontSize: "2em",
     },
     h3: {
-      fontSize: "1.2em",
+      fontSize: "1em",
     },
     h4: {
       fontSize: ".67em",
