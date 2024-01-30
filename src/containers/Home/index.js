@@ -92,11 +92,14 @@ const Home = () => {
             <img src={LadyWithBackground} alt="lady" className="img" />
           </Box>
           <Box className="representative-bloc">
-            <Typography variant="h2" className="primary bold mb-20">
-              L'accord parfait entre économies et garanties personnalisées !
+            <Typography variant="h2" className="red bold mb-20">
+              Une MUTUELLE santé adaptée à votre tempo financier
             </Typography>
-            <Typography variant="h3" className="red bold mb-70">
-              Une assurance adaptée à votre tempo financier
+            <Typography variant="h3" className="primary bold mb-40">
+              L'harmonie parfaite entre économies et garanties renforcées !
+            </Typography>
+            <Typography variant="h3" className="black bold mb-20">
+              Jusqu'à 470 d'économies*
             </Typography>
             <Box className="ml-10-per">
               <Button>J'obtiens mon tarif</Button>
