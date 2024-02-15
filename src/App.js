@@ -1,5 +1,8 @@
-import { Box } from "@mui/material";
 import Router from "Router";
+
+import { Box } from "@mui/material";
+
+import Footer from "containers/Footer";
 import TopBar from "containers/TopBar";
 
 function App() {
@@ -7,6 +10,7 @@ function App() {
     <Box>
       <TopBar />
       <Router />
+      <Footer />
     </Box>
   );
 }

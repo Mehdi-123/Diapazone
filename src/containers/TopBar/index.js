@@ -9,9 +9,10 @@ import { ReactComponent as Logo } from "assets/logo/logo.svg";
 import Wrapper from "./wrapper";
 
 const links = [
-  { text: "Obtenir un tarif", path: "/" },
-  { text: "À propos", path: "/accueil" },
+  { text: "Obtenir un tarif", path: "/formulaire" },
+  { text: "À propos", path: "/a-propos" },
   { text: "Contactez nous", path: "/contact-us" },
+  { text: "01.84.80.40.37", path: "" },
 ];
 
 const TopBar = () => {

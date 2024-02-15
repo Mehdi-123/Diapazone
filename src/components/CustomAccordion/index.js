@@ -22,47 +22,45 @@ const CustomAccordion = ({ accordionData }) => {
 
   return (
     <Wrapper>
-      <Box>
-        {accordionData.map((item, index) => (
-          <Accordion
-            key={index}
-            expanded={expandedAccordion === index}
-            onChange={() => handleAccordionChange(index)}
-            className="accordion"
+      {accordionData.map((item, index) => (
+        <Accordion
+          key={index}
+          expanded={expandedAccordion === index}
+          onChange={() => handleAccordionChange(index)}
+          className="accordion"
+        >
+          <AccordionSummary
+            className="accordion-summary"
+            expandIcon={
+              <AccordionPlus
+                style={{
+                  display: expandedAccordion === index ? "none" : "block",
+                }}
+                width={20}
+              />
+            }
           >
-            <AccordionSummary
-              className="accordion-summary"
-              expandIcon={
-                <AccordionPlus
-                  style={{
-                    display: expandedAccordion === index ? "none" : "block",
-                  }}
-                  width={20}
-                />
-              }
+            <Typography
+              variant="h3"
+              className={`accordion-title ${
+                expandedAccordion === index ? "bold" : "medium"
+              }`}
             >
-              <Typography
-                variant="h3"
-                className={`accordion-title ${
-                  expandedAccordion === index ? "bold" : "medium"
-                }`}
-              >
-                {item.title}
-              </Typography>
-              {expandedAccordion === index ? (
-                <Box className="accordion-dash">
-                  <AccordionDash width={20} />
-                </Box>
-              ) : null}
-            </AccordionSummary>
-            <AccordionDetails className="pt-20">
-              <Typography className="accordion-content medium" variant="h3">
-                {item.content}
-              </Typography>
-            </AccordionDetails>
-          </Accordion>
-        ))}
-      </Box>
+              {item.title}
+            </Typography>
+            {expandedAccordion === index ? (
+              <Box className="accordion-dash">
+                <AccordionDash width={20} />
+              </Box>
+            ) : null}
+          </AccordionSummary>
+          <AccordionDetails className="pt-20">
+            <Typography className="accordion-content medium" variant="h3">
+              {item.content}
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
+      ))}
     </Wrapper>
   );
 };

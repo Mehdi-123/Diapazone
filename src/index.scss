@@ -5,6 +5,7 @@ $black: #0c331e;
 $white: #fcfcf5;
 $background: #fcfcf5;
 $buttonBackground: #ffcf9d;
+$disabled: #859e90;
 
 :export {
   primary: $primary;
@@ -14,11 +15,13 @@ $buttonBackground: #ffcf9d;
   white: $white;
   background: $background;
   buttonBackground: $buttonBackground;
+  disabled: $disabled;
 }
 
 body {
   font-size: 30px;
   margin: 0;
+  overflow-x: hidden;
 }
 
 body::-webkit-scrollbar {
@@ -61,6 +64,79 @@ body {
   }
 }
 
+.MuiStepLabel-iconContainer {
+  display: none !important;
+}
+
+.MuiOutlinedInput-root {
+  border-radius: 20px !important;
+  border: solid 2px;
+  border-color: $secondary !important;
+  background-color: $background;
+  width: 500px !important;
+  height: 75px;
+  padding: 5px 20px 5px 5px !important;
+  font-size: 25px !important;
+  font-weight: 800 !important;
+}
+
+.MuiInputBase-input {
+  color: $secondary !important;
+}
+
+.MuiOutlinedInput-notchedOutline {
+  border-width: 0px !important;
+}
+
+.MuiInputBase-root::before {
+  border: 0px !important;
+}
+
+.MuiInputBase-root::after {
+  border: 0px !important;
+}
+
+.date {
+  .MuiSvgIcon-root {
+    color: $secondary !important;
+    font-size: 35px !important;
+  }
+  .MuiButtonBase-root {
+    display: none;
+  }
+}
+
+// .MuiPickersDay-root {
+//   color: $white !important;
+//   border-radius: 9px !important;
+//   border-width: 0 !important;
+//   background-color: $primary !important;
+// }
+
+// .MuiDateCalendar-root {
+//   color: $white !important;
+//   border-radius: 20px !important;
+//   border-width: 0 !important;
+//   background-color: $white !important;
+//   width: 500px !important;
+// }
+
+// .MuiPickersCalendarHeader-root {
+//   color: $secondary !important;
+// }
+
+.MuiInput-root {
+  border: solid 2px !important;
+  border-color: $secondary !important;
+  border-radius: 20px !important;
+  background-color: $background;
+  height: 75px;
+  width: 500px !important;
+  padding: 20px;
+  font-size: 25px !important;
+  font-weight: 800 !important;
+}
+
 .primary {
   color: $primary;
 }
@@ -85,12 +161,20 @@ body {
   color: $background;
 }
 
+.disabled {
+  color: $disabled;
+}
+
 .button-background {
   color: $buttonBackground;
 }
 
 .bold {
   font-weight: bold !important;
+}
+
+.semi-bold {
+  font-weight: 600 !important;
 }
 
 .medium {

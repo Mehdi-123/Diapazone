@@ -1,6 +1,8 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import HomePage from "pages/HomePage";
 import ContactUsPage from "pages/ContactUsPage";
+import AboutPage from "pages/AboutPage";
+import Form from "containers/Form";
 
 const routes = [
   {
@@ -10,6 +12,14 @@ const routes = [
   {
     path: "contact-us",
     element: <ContactUsPage />,
+  },
+  {
+    path: "a-propos",
+    element: <AboutPage />,
+  },
+  {
+    path: "formulaire",
+    element: <Form />,
   },
 ];
 

@@ -1,14 +1,12 @@
 import * as React from "react";
 
-import { Box, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 
 const GreenTitle = ({ title }) => {
   return (
-    <Box>
-      <Typography variant="h2" className="secondary bold">
-        {title}
-      </Typography>
-    </Box>
+    <Typography variant="h2" className="secondary bold">
+      {title}
+    </Typography>
   );
 };
 

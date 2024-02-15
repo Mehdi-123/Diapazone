@@ -51,25 +51,24 @@ export const accordionData = [
 
 export const testimonials = [
   {
-    author: "Mehdi Harit",
-    date: "06.2023",
+    author: "Aurélie Az",
+    date: "01.2024",
     rating: 5,
     feedback:
-      "Très bon contact avec mon conseiller, les explications sont claires et il n'a pas hésité à prendre du temps pour que tout soit bien clair",
+      "Très bon suivi de mon dossier avec mon conseiller Julien Muller.",
   },
   {
-    author: "Mehdi Harit",
-    date: "06.2023",
+    author: "Stéphane",
+    date: "12.2023",
     rating: 4,
-    feedback:
-      "Très bon contact avec mon conseiller, les explications sont claires et il n'a pas hésité à prendre du temps pour que tout soit bien clair",
+    feedback: "Service Très réactif, Mme Lambert est toujours à l’écoute…",
   },
   {
-    author: "Mehdi Harit",
+    author: "Claudine",
     date: "06.2023",
     rating: 3,
     feedback:
-      "Très bon contact avec mon conseiller, les explications sont claires et il n'a pas hésité à prendre du temps pour que tout soit bien clair",
+      "Des tarifs compétitifs ,j’ai réalisé 300 euros d’économies. Merci Diapzone.",
   },
   {
     author: "Mehdi Harit",

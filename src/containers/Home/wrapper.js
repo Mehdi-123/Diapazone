@@ -16,6 +16,9 @@ const Wrapper = styled(Box)`
   .mb-40 {
     margin-bottom: 40px;
   }
+  .mb-60 {
+    margin-bottom: 60px;
+  }
   .mb-30 {
     margin-bottom: 30px;
   }
@@ -29,13 +32,13 @@ const Wrapper = styled(Box)`
     margin-bottom: 3px;
   }
   .ml-10-per {
-    margin-left: 10%;
+    margin-left: 15%;
   }
   .before-accordion-title {
-    line-height: 1.5;
+    line-height: 1.4;
   }
   .download-text {
-    line-height: 1.5;
+    line-height: 1.4;
   }
   .representative-bloc-container {
     .lady-img-box {
@@ -43,6 +46,7 @@ const Wrapper = styled(Box)`
       position: absolute;
       top: 0;
       z-index: -1;
+      margin-top: -100px;
       .img {
         width: 100%;
         height: auto;
@@ -79,25 +83,11 @@ const Wrapper = styled(Box)`
     margin-bottom: 120px;
     align-items: center;
   }
-  .download-app-container {
+  .desc-container {
     background: ${colors.background};
     border-radius: 50px;
     padding: 40px 80px;
     position: relative;
-    .download-btns-container {
-      display: flex;
-      align-items: center;
-      gap: 30px;
-    }
-    .mockup-phone-container {
-      position: absolute;
-      right: 3%;
-      bottom: -5px;
-      .mockup-phone-img {
-        width: 220px;
-        height: auto;
-      }
-    }
   }
   .action-steps-container {
     display: flex;
@@ -111,9 +101,9 @@ const Wrapper = styled(Box)`
       }
       .text-container {
         position: absolute;
-        top: 50%;
+        top: 49%;
         left: 50%;
-        transform: translate(-50%, -100%);
+        transform: translate(-52%, -100%);
         width: 100%;
       }
       .mt-20 {
@@ -131,7 +121,7 @@ const Wrapper = styled(Box)`
     margin-bottom: 70px;
   }
   .representative-bloc {
-    margin: 10% 5% 38% 45%;
+    margin: 8% 5% 42% 48%;
   }
   @media (max-width: 1813px) {
     .identity-cercle {
@@ -140,7 +130,7 @@ const Wrapper = styled(Box)`
   }
   @media (max-width: 1678px) {
     .representative-bloc {
-      margin: 10% 10% 35% 45%;
+      margin: 8% 10% 35% 48%;
     }
     .slider-box-container {
       .text-container {
@@ -152,7 +142,7 @@ const Wrapper = styled(Box)`
   }
   @media (max-width: 1476px) {
     .representative-bloc {
-      margin: 10% 10% 33% 45%;
+      margin: 8% 10% 33% 48%;
     }
   }
 `;
