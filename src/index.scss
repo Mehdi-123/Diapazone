@@ -18,6 +18,11 @@ $disabled: #859e90;
   disabled: $disabled;
 }
 
+@font-face {
+  font-family: "Nunito";
+  src: url("./assets/fonts/Nunito.ttf") format("truetype");
+}
+
 body {
   font-size: 30px;
   margin: 0;
