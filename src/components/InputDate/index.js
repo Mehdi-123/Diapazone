@@ -6,13 +6,13 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
-const InputDate = ({ label, name, control, value, disabled }) => {
+const InputDate = ({ label, name, control, disabled }) => {
   return (
     <Box>
       <Typography
         sx={{ marginBottom: "20px" }}
         variant="h3"
-        className="bold primary"
+        className="bold secondary"
       >
         {label}
       </Typography>

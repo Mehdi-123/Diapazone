@@ -5,9 +5,9 @@ import { Box, Typography } from "@mui/material";
 import GreenTitle from "components/GreenTitle";
 import BackgroundMotif from "assets/images/background-motif.png";
 
-import { aboutUsData } from "./staticData";
+import { faqData } from "./staticData";
 
-const About = () => {
+const Faq = () => {
   return (
     <Box
       sx={{
@@ -26,18 +26,9 @@ const About = () => {
         }}
       />
       <Box sx={{ marginBottom: "60px" }}>
-        <GreenTitle title="À propos de nous" />
+        <GreenTitle title="Foire Aux Questions (FAQ)" />
       </Box>
-      <Typography
-        variant="h3"
-        className="black semi-bold"
-        sx={{ marginBottom: "60px" }}
-      >
-        Diapazone, votre partenaire de confiance pour une protection d'assurance
-        fiable et personnalisée. Nous sommes votre allié dévoué dans la création
-        d'un avenir sécurisé.
-      </Typography>
-      {aboutUsData.map((data, index) => (
+      {faqData.map((data, index) => (
         <Box key={index}>
           <Typography variant="h3" className="secondary mb-15 bold">
             {data.title}
@@ -55,4 +46,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default Faq;

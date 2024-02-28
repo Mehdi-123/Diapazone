@@ -5,7 +5,6 @@ import colors from "../../index.scss";
 
 const Wrapper = styled(Box)`
   .intensity-option {
-    padding: 20px;
     cursor: pointer;
     color: ${colors.black};
     font-weight: bold;

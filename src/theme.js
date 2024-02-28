@@ -19,6 +19,18 @@ const theme = createTheme({
       fontSize: ".5em",
     },
   },
+  breakpoints: {
+    values: {
+      phone: 0,
+      xxxs: 720,
+      xxs: 1050,
+      xs: 1300,
+      sm: 1400,
+      md: 1550,
+      lg: 1740,
+      xl: 1885,
+    },
+  },
 });
 
 export default theme;

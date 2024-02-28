@@ -10,19 +10,20 @@ const InputText = ({
   control,
   value,
   disabled,
+  email,
 }) => {
   return (
     <Box>
       <Typography
         sx={{ marginBottom: "25px" }}
         variant="h3"
-        className="bold primary"
+        className="bold secondary"
       >
         {label}
       </Typography>
       {subLabel && (
         <Typography
-          sx={{ marginBottom: "25px", width: "55%" }}
+          sx={{ marginBottom: "25px", width: { phone: "100%", xxxs: "55%" } }}
           variant="h3"
           className="semi-bold color"
         >
@@ -36,7 +37,7 @@ const InputText = ({
           <TextField
             {...field}
             fullWidth
-            type="text"
+            type={email ? "email" : "text"}
             variant="standard"
             disabled={disabled}
             value={value}

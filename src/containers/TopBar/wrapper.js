@@ -5,6 +5,11 @@ import colors from "../../index.scss";
 
 const Wrapper = styled(Box)`
   z-index: 99;
+  .phone-icon {
+    width: 22px;
+    margin-right: 10px;
+    z-index: 99;
+  }
   .text {
     color: ${colors.secondary};
     position: relative;
@@ -38,6 +43,19 @@ const Wrapper = styled(Box)`
       display: flex;
       gap: 20px;
       justify-content: flex-end;
+      align-items: center;
+    }
+  }
+  @media (max-width: 1050px) {
+    .top-bar {
+      padding: 0 50px;
+      flex-direction: row-reverse;
+    }
+  }
+  @media (max-width: 500px) {
+    .top-bar {
+      padding: 0 30px;
+      flex-direction: row-reverse;
     }
   }
 `;

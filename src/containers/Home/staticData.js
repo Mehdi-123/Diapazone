@@ -28,24 +28,25 @@ export const reasonsToChoose = [
 
 export const accordionData = [
   {
-    title: "Pourquoi souscrire à une mutuelle santé ?",
+    title: "Pourquoi la complémentaire santé est-elle importante ?",
     content:
-      "Grâce à la Sécurité sociale, une partie des frais de santé sont pris en charge. Cependant, pour les soins les plus coûteux, cette prise en charge est souvent incomplète et insuffisante. C’est notamment le cas pour le dentaire, l’optique, l’auditif ou tout simplement une hospitalisation. Souscrire à une mutuelle santé vous permet de n’avoir aucun reste à charge et de pouvoir vous soigner en toute sérénité.",
+      "Aujourd’hui, il devient indispensable de souscrire une mutuelle avec des bonnes garanties pour pallier ses frais de santé. La Sécurité sociale prend, certes, en charge une partie des dépenses mais ses remboursements sont bien souvent insuffisants. Par exemple, pour les soins optiques, les remboursements sont très dérisoires. Sans complémentaire santé, votre reste à charge sur vos dépenses médicales sera très élevé.",
   },
   {
-    title: "Quels sont les avantages d'une assurance santé en ligne ?",
+    title:
+      "Comment puis-je être sûr(e) de choisir la mutuelle qui me convient le mieux ?",
     content:
-      "Les assurances santé en ligne offrent généralement plus de flexibilité et de commodité. Vous pouvez souscrire, gérer et consulter votre assurance directement depuis votre smartphone ou votre ordinateur. De plus, les processus en ligne peuvent être plus rapides et plus efficaces.",
+      "Diapazone propose un service unique avec des experts santé dédiés. Après avoir rempli votre profil, vous avez la possibilité de bénéficier d'un entretien personnalisé avec un expert santé qui vous guidera tout au long du processus de la comparaison à la souscription et répondra à toutes vos questions.",
   },
   {
-    title: "Quels sont les avantages d'une assurance santé en ligne ?",
+    title: "Comment Résiler ma mutuelle ?",
     content:
-      "Les assurances santé en ligne offrent généralement plus de flexibilité et de commodité. Vous pouvez souscrire, gérer et consulter votre assurance directement depuis votre smartphone ou votre ordinateur. De plus, les processus en ligne peuvent être plus rapides et plus efficaces.",
+      "Il est possible de résilier votre mutuelle à l’échéance annuelle de votre contrat en respectant un préavis de deux mois si votre adhésion date de moins d’un an. Ou, après une année de contrat, à tout moment, sans frais ni justificatif. Nos services s’occupent de toutes les démarches pour vous gratuitement.",
   },
   {
-    title: "Quels sont les avantages d'une assurance santé en ligne ?",
+    title: "Quelle est la mutuelle la moins chère ?",
     content:
-      "Les assurances santé en ligne offrent généralement plus de flexibilité et de commodité. Vous pouvez souscrire, gérer et consulter votre assurance directement depuis votre smartphone ou votre ordinateur. De plus, les processus en ligne peuvent être plus rapides et plus efficaces.",
+      "Le choix dépend entièrement de votre profil et de vos besoins en santé. Plutôt que de privilégier la recherche de la mutuelle la moins coûteuse, nous vous suggérons de mettre l'accent sur celle qui offre le meilleur équilibre entre garanties et prix.",
   },
 ];
 

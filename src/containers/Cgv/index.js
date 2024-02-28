@@ -5,9 +5,9 @@ import { Box, Typography } from "@mui/material";
 import GreenTitle from "components/GreenTitle";
 import BackgroundMotif from "assets/images/background-motif.png";
 
-import { aboutUsData } from "./staticData";
+import { faqData } from "./staticData";
 
-const About = () => {
+const Cgv = () => {
   return (
     <Box
       sx={{
@@ -25,19 +25,13 @@ const About = () => {
           zIndex: -1,
         }}
       />
-      <Box sx={{ marginBottom: "60px" }}>
-        <GreenTitle title="À propos de nous" />
+      <Box sx={{ marginBottom: "20px" }}>
+        <GreenTitle title="Conditions Générales de Vente (CGV)" />
       </Box>
-      <Typography
-        variant="h3"
-        className="black semi-bold"
-        sx={{ marginBottom: "60px" }}
-      >
-        Diapazone, votre partenaire de confiance pour une protection d'assurance
-        fiable et personnalisée. Nous sommes votre allié dévoué dans la création
-        d'un avenir sécurisé.
-      </Typography>
-      {aboutUsData.map((data, index) => (
+      <Box sx={{ marginBottom: "60px" }}>
+        <GreenTitle title="Diapazone By Olm Assurance" />
+      </Box>
+      {faqData.map((data, index) => (
         <Box key={index}>
           <Typography variant="h3" className="secondary mb-15 bold">
             {data.title}
@@ -55,4 +49,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default Cgv;

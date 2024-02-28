@@ -1,19 +1,14 @@
 import { Link } from "react-router-dom";
 
-import { Box, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 
 import { ReactComponent as LogoWhite } from "assets/logo/logo-white.svg";
-import { ReactComponent as FacebookIcon } from "assets/icons/facebook-icon.svg";
-import { ReactComponent as LinkedinIcon } from "assets/icons/linkedin-icon.svg";
-import { ReactComponent as InstagramIcon } from "assets/icons/instagram-icon.svg";
-import { ReactComponent as TwitterIcon } from "assets/icons/twitter-icon.svg";
+// import { ReactComponent as FacebookIcon } from "assets/icons/facebook-icon.svg";
+// import { ReactComponent as LinkedinIcon } from "assets/icons/linkedin-icon.svg";
+// import { ReactComponent as InstagramIcon } from "assets/icons/instagram-icon.svg";
+// import { ReactComponent as TwitterIcon } from "assets/icons/twitter-icon.svg";
 
-import {
-  footerLinks1,
-  footerLinks2,
-  footerLinks3,
-  footerLinks4,
-} from "./staticData";
+import { footerLinks1, footerLinks2, footerLinks3 } from "./staticData";
 import Wrapper from "./wrapper";
 
 const Footer = () => {
@@ -24,45 +19,45 @@ const Footer = () => {
           <Link to="/accueil" style={{ textDecoration: "none" }}>
             <LogoWhite className="logo-size" />
           </Link>
-          <Box className="icons-container">
+          {/* <Box className="icons-container">
             <TwitterIcon />
             <FacebookIcon />
             <LinkedinIcon />
             <InstagramIcon />
-          </Box>
+          </Box> */}
         </Box>
         <Box className="footer-middle">
-          <Box className="top-container">
+          <Grid container className="top-container">
             {footerLinks1.map((link, index) => (
-              <Box key={index}>
+              <Grid key={index}>
                 <Typography variant="h4" className="bold white mb-20">
                   {link.title}
                 </Typography>
                 {link.text.map((item, i) => (
-                  <Link style={{ textDecoration: "none" }}>
+                  <Link to={item.link} style={{ textDecoration: "none" }}>
                     <Typography key={i} variant="h4" className="white mb-10">
-                      {item}
+                      {item.text}
                     </Typography>
                   </Link>
                 ))}
-              </Box>
+              </Grid>
             ))}
             {footerLinks2.map((link, index) => (
-              <Box key={index}>
+              <Grid key={index}>
                 <Typography variant="h4" className="bold white mb-20">
                   {link.title}
                 </Typography>
                 {link.text.map((item, i) => (
-                  <Link style={{ textDecoration: "none" }}>
+                  <Link to={item.link} style={{ textDecoration: "none" }}>
                     <Typography key={i} variant="h4" className="white mb-10">
-                      {item}
+                      {item.text}
                     </Typography>
                   </Link>
                 ))}
-              </Box>
+              </Grid>
             ))}
             {footerLinks3.map((link, index) => (
-              <Box key={index}>
+              <Grid key={index}>
                 <Typography variant="h4" className="bold white mb-20">
                   {link.title}
                 </Typography>
@@ -73,25 +68,9 @@ const Footer = () => {
                     </Typography>
                   </Link>
                 ))}
-              </Box>
+              </Grid>
             ))}
-          </Box>
-          <Box className="bottom-container">
-            {footerLinks4.map((link, index) => (
-              <Box key={index}>
-                <Typography variant="h4" className="bold white mb-20">
-                  {link.title}
-                </Typography>
-                {link.text.map((item, i) => (
-                  <Link style={{ textDecoration: "none" }}>
-                    <Typography key={i} variant="h4" className="white mb-10">
-                      {item}
-                    </Typography>
-                  </Link>
-                ))}
-              </Box>
-            ))}
-          </Box>
+          </Grid>
         </Box>
         <Box>
           <Typography variant="h5" className="white bold">

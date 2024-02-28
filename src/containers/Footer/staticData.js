@@ -1,30 +1,29 @@
 export const footerLinks1 = [
   {
-    title: "Nos assurances",
+    title: "En savoir plus",
     text: [
-      "Assurance santé",
-      "Assurance auto",
-      "Assurance chien & chat",
-      "Assurance smartphone",
+      { text: "À propos de nous", link: "a-propos" },
+      { text: "Devenir partenaire", link: "" },
+      { text: "On recrute", link: "" },
+      { text: "Blog", link: "" },
+      { text: "Mentions légales", link: "mentions-legales" },
+      { text: "CGV", link: "cgv" },
+      { text: "Conditions d'utilisation", link: "condition-utilisation" },
     ],
   },
 ];
 
 export const footerLinks2 = [
   {
-    title: "En savoir plus",
-    text: ["À propos de nous", "Devenir partenaire", "On recrute", "Blog"],
+    title: "Besoin d'aide ?",
+    text: [
+      { text: "FAQ", link: "faq" },
+      { text: "Nous contacter", link: "" },
+    ],
   },
 ];
 
 export const footerLinks3 = [
-  {
-    title: "Besoin d'aide ?",
-    text: ["FAQ", "Espace client", "Nous contacter", "Presse"],
-  },
-];
-
-export const footerLinks4 = [
   {
     title: "Langages",
     text: ["Français | Anglais"],

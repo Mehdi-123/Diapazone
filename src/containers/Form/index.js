@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 
 import Box from "@mui/material/Box";
@@ -9,6 +9,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import StepConnector from "@mui/material/StepConnector";
 import CheckIcon from "@mui/icons-material/Check";
+import CheckBoxIcon from "@mui/icons-material/CheckBox";
 
 import GreenTitle from "components/GreenTitle";
 import RadioButton from "components/RadioButton";
@@ -20,8 +21,9 @@ import RadioBtnMan from "assets/images/radio-btn-man.svg";
 import RadioBtnWoman from "assets/images/radio-btn-woman.svg";
 import BackgroundMotif from "assets/images/background-motif.png";
 import colors from "../../index.scss";
+import { Link } from "react-router-dom";
 
-const steps = ["Votre profile", "Vos besoins", "Vos coordonnées"];
+const steps = ["Profile", "Besoins", "Coordonnées"];
 
 const StyledStepConnector = (props) => (
   <StepConnector {...props} style={{ display: "none" }} />
@@ -30,8 +32,8 @@ const StyledStepConnector = (props) => (
 const Circle = ({ selected }) => (
   <Box
     sx={{
-      width: "35px",
-      height: "35px",
+      width: { phone: "25px", xxxs: "25px" },
+      height: { phone: "25px", xxxs: "25px" },
       borderRadius: "50%",
       border: "1px solid",
       borderColor: selected ? colors.secondary : colors.black,
@@ -41,30 +43,35 @@ const Circle = ({ selected }) => (
       justifyContent: "center",
     }}
   >
-    {selected && <CheckIcon sx={{ color: colors.white, fontSize: "25px" }} />}
+    {selected && (
+      <CheckIcon
+        sx={{ color: colors.white, fontSize: { phone: "15px", xxxs: "15px" } }}
+      />
+    )}
   </Box>
 );
 
 const Form = () => {
   const [activeStep, setActiveStep] = useState(0);
+  const [showNext, setShowNext] = useState(0);
   const [accepted, setAccepted] = useState(false);
   const [selectedConditions, setSelectedCondition] = useState(false);
   const completed = {};
 
-  const totalSteps = () => steps.length;
-
-  const completedSteps = () => Object.keys(completed).length;
-
-  const isLastStep = () => activeStep === totalSteps() - 1;
-
-  const allStepsCompleted = () => completedSteps() === totalSteps();
-
   const handleNext = () => {
-    const newActiveStep =
-      isLastStep() && !allStepsCompleted()
-        ? steps.findIndex((_, i) => !(i in completed))
-        : activeStep + 1;
-    setActiveStep(newActiveStep);
+    if (showNext === 5) {
+      setActiveStep(activeStep + 1);
+    }
+    if (activeStep === 2) {
+      setShowNext(showNext + 1);
+    } else {
+      if (showNext === 3) {
+        setActiveStep(activeStep + 1);
+        setShowNext(0);
+      } else {
+        setShowNext(showNext + 1);
+      }
+    }
   };
 
   const handleStep = (step) => () => setActiveStep(step);
@@ -92,15 +99,49 @@ const Form = () => {
     },
   ];
 
+  const regims = [
+    { value: "1", label: "Régime général" },
+    { value: "2", label: "Régime local Alsace Moselle" },
+    { value: "3", label: "Régime agricole" },
+    { value: "4", label: "Régime TNS" },
+  ];
+
+  const insured = [
+    { value: "1", label: "Moi même" },
+    { value: "2", label: "Conjoint" },
+    { value: "2", label: "Enfant" },
+  ];
+
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    if (inputRef.current) {
+      const { top } = inputRef.current.getBoundingClientRect();
+      const viewportHeight =
+        window.innerHeight || document.documentElement.clientHeight;
+      const scrollDistance = top - 0.1 * viewportHeight;
+
+      window.scrollTo({
+        top: window.pageYOffset + scrollDistance,
+        behavior: "smooth",
+      });
+    }
+  }, [showNext]);
+
   return (
-    <Box sx={{ padding: "100px 140px", position: "relative" }}>
+    <Box
+      sx={{
+        padding: { phone: "25px 30px", xxxs: "30px 40px", xxs: "100px 140px" },
+        position: "relative",
+      }}
+    >
       <img
         src={BackgroundMotif}
         alt="contract-one"
         style={{
           position: "absolute",
           bottom: "-150px",
-          right: "-150px",
+          right: "0",
           zIndex: -1,
         }}
       />
@@ -111,7 +152,7 @@ const Form = () => {
         sx={{
           bgcolor: colors.background,
           borderRadius: 5,
-          padding: "20px 40px",
+          padding: { phone: "10px 20px", xxxs: "20px 40px" },
           mb: 4,
           marginBottom: "80px",
         }}
@@ -120,7 +161,7 @@ const Form = () => {
           nonLinear
           activeStep={activeStep}
           connector={<StyledStepConnector />}
-          sx={{ gap: "50px" }}
+          sx={{ gap: { phone: "20px", xxxs: "50px" } }}
         >
           {steps.map((label, index) => (
             <Step key={index} completed={completed[index]}>
@@ -133,7 +174,7 @@ const Form = () => {
                   className={`bold ${
                     activeStep === index ? "secondary" : "disabled"
                   }`}
-                  sx={{ fontSize: "20px" }}
+                  sx={{ fontSize: { phone: "15px", xxxs: "20px" } }}
                 >
                   {label}
                 </Typography>
@@ -146,45 +187,65 @@ const Form = () => {
         <Box>
           <Box sx={{ marginBottom: "40px" }}>
             <RadioButton
-              label="Civlité"
+              label="Civilité"
               name="gender"
               control={control}
               value={watch("gender")}
               options={genders}
             />
           </Box>
-          <Box sx={{ marginBottom: "40px" }}>
-            <InputDate
-              label="Quelle est votre date de naissance ?"
-              name="date"
-              control={control}
-              value={watch("date")}
-            />
-          </Box>
-          <Box sx={{ marginBottom: "40px" }}>
-            <SelectInput
-              label="Quel est votre régime social ?"
-              name="socialRegime"
-              control={control}
-              value={watch("socialRegime")}
-            />
-          </Box>
-          <Box sx={{ marginBottom: "80px" }}>
-            <SelectInput
-              label="Qui souhaitez-vous assurer ?"
-              name="insuredPerson"
-              control={control}
-              value={watch("insuredPerson")}
-            />
-          </Box>
+          {showNext >= 1 && (
+            <Box
+              ref={activeStep === 0 && showNext === 1 ? inputRef : null}
+              sx={{ marginBottom: "40px" }}
+            >
+              <InputDate
+                label="Quelle est votre date de naissance ?"
+                name="date"
+                control={control}
+                value={watch("date")}
+              />
+            </Box>
+          )}
+          {showNext >= 2 && (
+            <Box
+              ref={activeStep === 0 && showNext === 2 ? inputRef : null}
+              sx={{ marginBottom: "40px" }}
+            >
+              <SelectInput
+                label="Quel est votre régime social ?"
+                name="socialRegime"
+                control={control}
+                value={watch("socialRegime")}
+                options={regims}
+              />
+            </Box>
+          )}
+          {showNext === 3 && (
+            <Box
+              ref={activeStep === 0 && showNext === 3 ? inputRef : null}
+              sx={{ marginBottom: "80px" }}
+            >
+              <SelectInput
+                label="Qui souhaitez-vous assurer ?"
+                name="insuredPerson"
+                control={control}
+                value={watch("insuredPerson")}
+                options={insured}
+              />
+            </Box>
+          )}
         </Box>
       )}
       {activeStep === 1 && (
-        <Box sx={{ marginBottom: "80px" }}>
+        <Box
+          ref={activeStep === 1 && showNext === 0 ? inputRef : null}
+          sx={{ marginBottom: "80px" }}
+        >
           <Typography
             sx={{ marginBottom: "25px" }}
             variant="h3"
-            className="bold primary"
+            className="bold secondary"
           >
             Quel niveau de remboursement souhaitez-vous ?
           </Typography>
@@ -210,29 +271,47 @@ const Form = () => {
               subLabel="(médecine générale, pharmacie, radios, etc.)"
             />
           </Box>
-          <Box sx={{ marginBottom: "40px" }}>
-            <IntensitySelector
-              label="Hospitalisation"
-              subLabel="(frais de séjour, frais de transport, chirurgie, etc.)"
-            />
-          </Box>
-          <Box sx={{ marginBottom: "40px" }}>
-            <IntensitySelector
-              label="Dentaire"
-              subLabel="(dentiste, prothèses, soins, etc.)"
-            />
-          </Box>
-          <Box sx={{ marginBottom: "40px" }}>
-            <IntensitySelector
-              label="Optique"
-              subLabel="(lentilles, lunettes, chirurgie réfractive, etc.)"
-            />
-          </Box>
+          {showNext >= 1 && (
+            <Box
+              ref={activeStep === 1 && showNext === 1 ? inputRef : null}
+              sx={{ marginBottom: "40px" }}
+            >
+              <IntensitySelector
+                label="Hospitalisation"
+                subLabel="(frais de séjour, frais de transport, chirurgie, etc.)"
+              />
+            </Box>
+          )}
+          {showNext >= 2 && (
+            <Box
+              ref={activeStep === 1 && showNext === 2 ? inputRef : null}
+              sx={{ marginBottom: "40px" }}
+            >
+              <IntensitySelector
+                label="Dentaire"
+                subLabel="(dentiste, prothèses, soins, etc.)"
+              />
+            </Box>
+          )}
+          {showNext === 3 && (
+            <Box
+              ref={activeStep === 1 && showNext === 3 ? inputRef : null}
+              sx={{ marginBottom: "40px" }}
+            >
+              <IntensitySelector
+                label="Optique"
+                subLabel="(lentilles, lunettes, chirurgie réfractive, etc.)"
+              />
+            </Box>
+          )}
         </Box>
       )}
       {activeStep === 2 && (
         <Box sx={{ marginBottom: "60px" }}>
-          <Box sx={{ marginBottom: "60px" }}>
+          <Box
+            ref={activeStep === 2 && showNext === 0 ? inputRef : null}
+            sx={{ marginBottom: "60px" }}
+          >
             <InputText
               label="Quel est votre prénom ?"
               placeholder="Prénom"
@@ -241,96 +320,137 @@ const Form = () => {
               control={control}
             />
           </Box>
-          <Box sx={{ marginBottom: "60px" }}>
-            <InputText
-              label="Quel est votre nom ?"
-              placeholder="Nom"
-              value={watch("lastName")}
-              name="lastName"
-              control={control}
-            />
-          </Box>
-          <Box sx={{ marginBottom: "60px" }}>
-            <InputText
-              label="Dans quelle ville résidez-vous ?"
-              placeholder="Ville"
-              value={watch("city")}
-              name="city"
-              control={control}
-            />
-          </Box>
-          <Box sx={{ marginBottom: "60px" }}>
-            <InputText
-              label="Quelle est votre adresse email ?"
-              placeholder="Email"
-              subLabel="Vous allez recevoir un email qui récapitule votre comparaison."
-              value={watch("mail")}
-              name="mail"
-              control={control}
-            />
-          </Box>
-          <Box sx={{ marginBottom: "60px" }}>
-            <InputText
-              label="Quelle est votre numéro de téléphone ?"
-              placeholder="Téléphone"
-              subLabel="Promis, votre numéro de téléphone sera transmis uniquement aux assureurs avec lesquels vous souhaitez être mis en relation."
-              value={watch("phone")}
-              name="phone"
-              control={control}
-            />
-          </Box>
-          <Box sx={{ display: "flex", gap: "15px" }}>
+          {showNext >= 1 && (
             <Box
-              sx={{ cursor: "pointer" }}
-              onClick={() => {
-                setAccepted(!accepted);
-              }}
+              ref={activeStep === 2 && showNext === 1 ? inputRef : null}
+              sx={{ marginBottom: "60px" }}
             >
-              <Circle selected={accepted} />
+              <InputText
+                label="Quel est votre nom ?"
+                placeholder="Nom"
+                value={watch("lastName")}
+                name="lastName"
+                control={control}
+              />
             </Box>
-            <Typography
-              sx={{ marginBottom: "35px" }}
-              variant="h3"
-              className="bold color"
-            >
-              J'accepte de recevoir les offres de Diapazone et de{" "}
-              <span style={{ color: colors.secondary }}>
-                leurs partenaires.
-              </span>
-            </Typography>
-          </Box>
-          <Box sx={{ display: "flex", gap: "15px" }}>
+          )}
+          {showNext >= 2 && (
             <Box
-              sx={{ cursor: "pointer" }}
-              onClick={() => {
-                setSelectedCondition(!selectedConditions);
-              }}
+              ref={activeStep === 2 && showNext === 2 ? inputRef : null}
+              sx={{ marginBottom: "60px" }}
             >
-              <Circle selected={selectedConditions} />
+              <InputText
+                label="Dans quelle ville résidez-vous ?"
+                placeholder="Ville"
+                value={watch("city")}
+                name="city"
+                control={control}
+              />
             </Box>
-            <Typography
-              sx={{ marginBottom: "20px", width: "55%" }}
-              variant="h3"
-              className="bold color"
+          )}
+          {showNext >= 3 && (
+            <Box
+              ref={activeStep === 2 && showNext === 3 ? inputRef : null}
+              sx={{ marginBottom: "60px" }}
             >
-              J'accepte les{" "}
-              <span style={{ color: colors.secondary }}>
-                Conditions Générales d'Utilisation
-              </span>{" "}
-              et d'être contacté par nos partenaires Assurance Santé si je
-              demande à être mis en relation pour faire des économies.
-            </Typography>
-          </Box>
+              <InputText
+                label="Quelle est votre adresse email ?"
+                placeholder="Email"
+                subLabel="Vous allez recevoir un email qui récapitule votre comparaison."
+                value={watch("mail")}
+                name="mail"
+                email={true}
+                control={control}
+              />
+            </Box>
+          )}
+          {showNext >= 4 && (
+            <Box
+              ref={activeStep === 2 && showNext === 4 ? inputRef : null}
+              sx={{ marginBottom: "60px" }}
+            >
+              <InputText
+                label="Quelle est votre numéro de téléphone ?"
+                placeholder="Téléphone"
+                subLabel="Promis, votre numéro de téléphone sera transmis uniquement si vous souhaitez être mis en relation."
+                value={watch("phone")}
+                name="phone"
+                control={control}
+              />
+            </Box>
+          )}
+          {showNext === 5 && (
+            <>
+              <Box
+                ref={activeStep === 2 && showNext === 5 ? inputRef : null}
+                sx={{
+                  display: "flex",
+                  gap: "10px",
+                  alignItems: "center",
+                  marginBottom: "25px",
+                }}
+              >
+                <Box
+                  sx={{ cursor: "pointer" }}
+                  onClick={() => {
+                    setAccepted(!accepted);
+                  }}
+                >
+                  <Circle selected={accepted} />
+                </Box>
+                <Typography variant="h4" className="bold color">
+                  J'accepte de recevoir les offres de Diapazone.
+                </Typography>
+              </Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  gap: "10px",
+                  alignItems: "center",
+                  marginBottom: "20px",
+                }}
+              >
+                <Box
+                  sx={{ cursor: "pointer" }}
+                  onClick={() => {
+                    setSelectedCondition(!selectedConditions);
+                  }}
+                >
+                  <Circle selected={selectedConditions} />
+                </Box>
+                <Typography
+                  sx={{
+                    width: { phone: "100%", xxxs: "55%" },
+                  }}
+                  variant="h4"
+                  className="bold color"
+                >
+                  J'accepte les{" "}
+                  <Link
+                    to="/conditions-utilisation"
+                    style={{ color: colors.secondary, textDecoration: "none" }}
+                  >
+                    Conditions Générales d'Utilisation
+                  </Link>{" "}
+                  et d'être contacté par nos conseillers.
+                </Typography>
+              </Box>
+            </>
+          )}
         </Box>
       )}
-      <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
-        <Button onClick={handleNext} sx={{ mr: 1 }}>
-          {isLastStep() ? "Découvrir mes offres" : "Continuer"}
-        </Button>
-      </Box>
+      {activeStep !== 3 && (
+        <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
+          <Button onClick={handleNext} sx={{ mr: 1 }}>
+            {activeStep === 2 && showNext === 5
+              ? "Découvrir mes offres"
+              : "Continuer"}
+          </Button>
+        </Box>
+      )}
       {activeStep === 2 && (
         <Typography
-          sx={{ marginTop: "50px", width: "45%" }}
+          sx={{ marginTop: "50px", width: { phone: "100%", xxxs: "45%" } }}
           variant="h4"
           className="bold black"
         >
@@ -345,6 +465,34 @@ const Form = () => {
             Charte de protection des données personnelles.
           </span>
         </Typography>
+      )}
+      {activeStep === 3 && (
+        <Box>
+          <Box
+            ref={activeStep === 3 ? inputRef : null}
+            sx={{ display: "flex", alignItems: "center", gap: 1 }}
+          >
+            <Typography variant="h3" className="primary bold">
+              Formulaire validé
+            </Typography>
+            <CheckBoxIcon className="secondary" fontSize="25px" />
+          </Box>
+          <Typography variant="h3" mt={6} className="black">
+            Un devis sur mesure sera expédié dans votre boîte mail d’ici peu.
+          </Typography>
+          <Typography variant="h3" className="black">
+            Restez à l'affût!
+          </Typography>
+          <Typography
+            variant="h3"
+            mt={4}
+            className="black"
+            sx={{ width: { phone: "100%", xxxs: "40%" } }}
+          >
+            Vous êtes sur le point de réaliser{" "}
+            <span className="red">400€*</span> d'économies en moyenne.
+          </Typography>
+        </Box>
       )}
     </Box>
   );

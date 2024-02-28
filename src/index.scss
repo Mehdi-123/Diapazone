@@ -106,25 +106,6 @@ body {
   }
 }
 
-// .MuiPickersDay-root {
-//   color: $white !important;
-//   border-radius: 9px !important;
-//   border-width: 0 !important;
-//   background-color: $primary !important;
-// }
-
-// .MuiDateCalendar-root {
-//   color: $white !important;
-//   border-radius: 20px !important;
-//   border-width: 0 !important;
-//   background-color: $white !important;
-//   width: 500px !important;
-// }
-
-// .MuiPickersCalendarHeader-root {
-//   color: $secondary !important;
-// }
-
 .MuiInput-root {
   border: solid 2px !important;
   border-color: $secondary !important;
@@ -182,23 +163,65 @@ body {
 }
 
 .logo-size {
-  width: 250px;
+  width: 300px;
+  height: 300px;
 }
 
-@media (max-width: 1813px) {
+@media (max-width: 1885px) {
   body {
     font-size: 26px;
   }
 }
 
-@media (max-width: 1678px) {
+@media (max-width: 1740px) {
+  body {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 1550px) {
+  body {
+    font-size: 23px;
+  }
+}
+
+@media (max-width: 1400px) {
   body {
     font-size: 22px;
   }
 }
 
-@media (max-width: 1476px) {
+@media (max-width: 720px) {
   body {
     font-size: 20px;
+  }
+}
+
+@media (max-width: 720px) {
+  .logo-size {
+    width: 150px;
+  }
+  body {
+    font-size: 18px;
+  }
+  .MuiOutlinedInput-root {
+    width: 300px !important;
+    height: 70px;
+    padding: 3px 15px 3px 3px !important;
+    font-size: 20px !important;
+    font-weight: 700 !important;
+  }
+  .MuiInput-root {
+    width: 300px !important;
+    height: 70px;
+    padding: 15px;
+    font-size: 20px !important;
+    font-weight: 700 !important;
+  }
+}
+
+@media (max-width: 410px) {
+  body {
+    font-size: 16px;
   }
 }

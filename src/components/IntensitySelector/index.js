@@ -19,7 +19,7 @@ const IntensitySelector = ({ label, subLabel }) => {
       <Typography
         sx={{ marginBottom: "20px" }}
         variant="h3"
-        className="bold primary"
+        className="bold secondary"
       >
         {label}
       </Typography>
@@ -43,6 +43,7 @@ const IntensitySelector = ({ label, subLabel }) => {
       >
         <Typography
           variant="h3"
+          sx={{ px: { phone: 1.2, xxxs: 2 }, py: { phone: 1.7, xxxs: 2 } }}
           className={`intensity-option ${
             selectedOption === "Minimum" ? "selected left" : ""
           }`}
@@ -52,6 +53,7 @@ const IntensitySelector = ({ label, subLabel }) => {
         </Typography>
         <Typography
           variant="h3"
+          sx={{ px: { phone: 1.2, xxxs: 2 }, py: { phone: 1.7, xxxs: 2 } }}
           className={`intensity-option ${
             selectedOption === "Moyen" ? "selected" : ""
           }`}
@@ -61,6 +63,7 @@ const IntensitySelector = ({ label, subLabel }) => {
         </Typography>
         <Typography
           variant="h3"
+          sx={{ px: { phone: 1.2, xxxs: 2 }, py: { phone: 1.7, xxxs: 2 } }}
           className={`intensity-option ${
             selectedOption === "Fort" ? "selected" : ""
           }`}
@@ -70,6 +73,7 @@ const IntensitySelector = ({ label, subLabel }) => {
         </Typography>
         <Typography
           variant="h3"
+          sx={{ px: { phone: 1.2, xxxs: 2 }, py: { phone: 1.7, xxxs: 2 } }}
           className={`intensity-option ${
             selectedOption === "Maximum" ? "selected right" : ""
           }`}

@@ -3,6 +3,10 @@ import HomePage from "pages/HomePage";
 import ContactUsPage from "pages/ContactUsPage";
 import AboutPage from "pages/AboutPage";
 import Form from "containers/Form";
+import FaqPage from "pages/FaqPage";
+import LegalNotice from "containers/LegalNotice";
+import CgvPage from "pages/CgvPage";
+import TermsOfUsePage from "pages/TermsOfUsePage";
 
 const routes = [
   {
@@ -16,6 +20,22 @@ const routes = [
   {
     path: "a-propos",
     element: <AboutPage />,
+  },
+  {
+    path: "faq",
+    element: <FaqPage />,
+  },
+  {
+    path: "conditions-utilisation",
+    element: <TermsOfUsePage />,
+  },
+  {
+    path: "cgv",
+    element: <CgvPage />,
+  },
+  {
+    path: "mentions-legales",
+    element: <LegalNotice />,
   },
   {
     path: "formulaire",

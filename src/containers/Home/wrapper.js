@@ -4,53 +4,17 @@ import { Box } from "@mui/material";
 import colors from "../../index.scss";
 
 const Wrapper = styled(Box)`
-  .px-100 {
-    padding: 0 100px;
-  }
-  .px-60 {
-    padding: 0 60px;
-  }
-  .mb-100 {
-    margin-bottom: 100px;
-  }
-  .mb-40 {
-    margin-bottom: 40px;
-  }
-  .mb-60 {
-    margin-bottom: 60px;
-  }
-  .mb-30 {
-    margin-bottom: 30px;
-  }
-  .mb-15 {
-    margin-bottom: 15px;
-  }
-  .mb-7 {
-    margin-bottom: 7px;
-  }
-  .mb-3 {
-    margin-bottom: 3px;
-  }
-  .ml-10-per {
-    margin-left: 15%;
-  }
   .before-accordion-title {
     line-height: 1.4;
   }
   .download-text {
     line-height: 1.4;
   }
-  .representative-bloc-container {
-    .lady-img-box {
+  .lady-img-box {
+    z-index: -1;
+    .img {
       width: 100%;
-      position: absolute;
-      top: 0;
-      z-index: -1;
-      margin-top: -100px;
-      .img {
-        width: 100%;
-        height: auto;
-      }
+      height: auto;
     }
   }
   .slider-box-container {
@@ -67,7 +31,7 @@ const Wrapper = styled(Box)`
         margin-bottom: 15px;
       }
       .feedback-text {
-        padding: 0 120px;
+        padding: 0 130px;
         color: ${colors.black};
       }
       .mb-10 {
@@ -87,62 +51,135 @@ const Wrapper = styled(Box)`
     background: ${colors.background};
     border-radius: 50px;
     padding: 40px 80px;
-    position: relative;
+    margin-top: 80px;
   }
   .action-steps-container {
     display: flex;
+    flex-wrap: wrap;
     gap: 30px;
+    justify-content: center;
+
     .box-container {
       flex: 1;
       text-align: center;
       position: relative;
-      .small-identity-cercle {
-        width: 170px;
-      }
       .text-container {
         position: absolute;
-        top: 49%;
+        top: 50%;
         left: 50%;
-        transform: translate(-52%, -100%);
+        transform: translate(-50%, -100%);
         width: 100%;
       }
-      .mt-20 {
-        margin-top: 20px;
+    }
+  }
+  @media (max-width: 1024px) {
+    .action-steps-container {
+      .box-container {
+        flex-basis: calc(50% - 15px);
+      }
+    }
+  }
+  @media (max-width: 600px) {
+    .action-steps-container {
+      .box-container {
+        flex-basis: calc(100% - 30px);
       }
     }
   }
   .identity-cercle {
     width: 100%;
   }
-  .mb-20 {
-    margin-bottom: 20px;
-  }
-  .mb-70 {
-    margin-bottom: 70px;
-  }
-  .representative-bloc {
-    margin: 8% 5% 42% 48%;
-  }
   @media (max-width: 1813px) {
     .identity-cercle {
       width: 80%;
     }
   }
-  @media (max-width: 1678px) {
-    .representative-bloc {
-      margin: 8% 10% 35% 48%;
+  @media (max-width: 820px) {
+    .desc-container {
+      padding: 20px 30px;
     }
+    .identity-cercle {
+      &.size {
+        &.smaller {
+          width: 55%;
+        }
+      }
+    }
+    .slider-box-container {
+      .text-container {
+        .feedback-text {
+          padding: 0 180px !important;
+        }
+      }
+    }
+  }
+  @media (max-width: 650px) {
+    .identity-cercle {
+      &.size {
+        width: 70% !important;
+      }
+    }
+    .slider-box-container {
+      .text-container {
+        .feedback-text {
+          &.size {
+            padding: 0 100px !important;
+          }
+        }
+      }
+    }
+  }
+  @media (max-width: 495px) {
+    .identity-cercle {
+      &.size {
+        width: 95% !important;
+      }
+    }
+    .slider-box-container {
+      .text-container {
+        .feedback-text {
+          &.size {
+            padding: 0 50px !important;
+          }
+        }
+      }
+    }
+  }
+  @media (max-width: 1050px) {
+    .identity-cercle {
+      &.size {
+        width: 45%;
+      }
+    }
+    .slider-box-container {
+      .text-container {
+        .feedback-text {
+          &.size {
+            padding: 0 280px;
+          }
+        }
+      }
+    }
+  }
+  @media (max-width: 1300px) {
+    .identity-cercle {
+      width: 75%;
+    }
+    .slider-box-container {
+      .text-container {
+        .feedback-text {
+          padding: 0 110px;
+        }
+      }
+    }
+  }
+  @media (max-width: 1678px) {
     .slider-box-container {
       .text-container {
         .feedback-text {
           padding: 0 90px;
         }
       }
-    }
-  }
-  @media (max-width: 1476px) {
-    .representative-bloc {
-      margin: 8% 10% 33% 48%;
     }
   }
 `;

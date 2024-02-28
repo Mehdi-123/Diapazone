@@ -35,6 +35,11 @@ const Wrapper = styled(Box)`
       margin-bottom: 20px;
     }
   }
+  @media (max-width: 650px) {
+    .footer-container {
+      padding: 20px 40px;
+    }
+  }
 `;
 
 export default Wrapper;
