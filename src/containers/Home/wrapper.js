@@ -13,7 +13,7 @@ const Wrapper = styled(Box)`
   .lady-img-box {
     z-index: -1;
     .img {
-      width: 100%;
+      width: 45%;
       height: auto;
     }
   }

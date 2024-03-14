@@ -19,12 +19,6 @@ const Footer = () => {
           <Link to="/accueil" style={{ textDecoration: "none" }}>
             <LogoWhite className="logo-size" />
           </Link>
-          {/* <Box className="icons-container">
-            <TwitterIcon />
-            <FacebookIcon />
-            <LinkedinIcon />
-            <InstagramIcon />
-          </Box> */}
         </Box>
         <Box className="footer-middle">
           <Grid container className="top-container">
@@ -34,7 +28,11 @@ const Footer = () => {
                   {link.title}
                 </Typography>
                 {link.text.map((item, i) => (
-                  <Link to={item.link} style={{ textDecoration: "none" }}>
+                  <Link
+                    key={i}
+                    to={item.link}
+                    style={{ textDecoration: "none" }}
+                  >
                     <Typography key={i} variant="h4" className="white mb-10">
                       {item.text}
                     </Typography>
@@ -48,7 +46,11 @@ const Footer = () => {
                   {link.title}
                 </Typography>
                 {link.text.map((item, i) => (
-                  <Link to={item.link} style={{ textDecoration: "none" }}>
+                  <Link
+                    key={i}
+                    to={item.link}
+                    style={{ textDecoration: "none" }}
+                  >
                     <Typography key={i} variant="h4" className="white mb-10">
                       {item.text}
                     </Typography>
@@ -62,7 +64,7 @@ const Footer = () => {
                   {link.title}
                 </Typography>
                 {link.text.map((item, i) => (
-                  <Link style={{ textDecoration: "none" }}>
+                  <Link key={i} style={{ textDecoration: "none" }}>
                     <Typography key={i} variant="h4" className="white mb-10">
                       {item}
                     </Typography>

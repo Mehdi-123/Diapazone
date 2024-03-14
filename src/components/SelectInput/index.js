@@ -3,6 +3,7 @@ import Select from "react-select";
 
 import { Box, Typography } from "@mui/material";
 import colors from "index.scss";
+import { useState } from "react";
 
 const customStyles = {
   control: (provided) => ({
@@ -114,13 +115,39 @@ const responsiveCustomStyles = {
   }),
 };
 
-const SelectInput = ({ label, name, control, value, options }) => {
+const SelectInput = ({ error, label, name, control, value, options }) => {
+  const [loadedOptions, setLoadedOptions] = useState(options.slice(0, 20));
+  const [searchValue, setSearchValue] = useState("");
+
+  const loadOptions = (inputValue) => {
+    const filteredOptions = options.filter((option) =>
+      option.label.toLowerCase().includes(inputValue.toLowerCase())
+    );
+    return filteredOptions.slice(0, 20);
+  };
+
+  const handleInputChange = (newValue) => {
+    setSearchValue(newValue);
+    const newOptions = loadOptions(newValue);
+    setLoadedOptions(newOptions);
+  };
+
+  const handleMenuScrollToBottom = () => {
+    const nextIndex = loadedOptions.length;
+    const nextPageOptions = options
+      .filter((option) =>
+        option.label.toLowerCase().includes(searchValue.toLowerCase())
+      )
+      .slice(nextIndex, nextIndex + 20);
+    setLoadedOptions([...loadedOptions, ...nextPageOptions]);
+  };
+
   return (
     <Box>
       <Typography
         sx={{ marginBottom: "20px" }}
         variant="h3"
-        className="bold secondary"
+        className="bold black"
       >
         {label}
       </Typography>
@@ -128,12 +155,21 @@ const SelectInput = ({ label, name, control, value, options }) => {
         <Controller
           control={control}
           name={name}
-          render={({ field: { onChange, value } }) => (
+          render={({ field: { onChange } }) => (
             <Select
-              options={options}
-              onChange={onChange}
-              value={options.find((option) => option.value === value)}
+              options={loadedOptions}
+              onChange={(selectedOption) => {
+                onChange(selectedOption);
+                setSearchValue("");
+              }}
+              value={loadedOptions.find((option) => option.value === value)}
               styles={customStyles}
+              onInputChange={handleInputChange}
+              onMenuScrollToBottom={handleMenuScrollToBottom}
+              isLoading={loadedOptions.length === 0 && searchValue !== ""}
+              loadingMessage={() => "Pas de résultat..."}
+              noOptionsMessage={() => "Pas de résultat"}
+              inputValue={searchValue}
             />
           )}
         />
@@ -152,6 +188,11 @@ const SelectInput = ({ label, name, control, value, options }) => {
           )}
         />
       </Box>
+      {error && (
+        <Typography variant="h4" className="bold red" sx={{ mt: 2 }}>
+          {error.message}
+        </Typography>
+      )}
     </Box>
   );
 };

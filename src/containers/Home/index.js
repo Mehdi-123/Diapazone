@@ -8,7 +8,7 @@ import { Box, Button, Typography, Rating, Grid } from "@mui/material";
 
 import GreenTitle from "components/GreenTitle";
 import CustomAccordion from "components/CustomAccordion";
-import LadyWithBackground from "assets/images/lady-with-background.png";
+import LadyBg from "assets/images/lady-without-bg.png";
 import ContractOne from "assets/images/contract-one.png";
 import ContractTwo from "assets/images/contract-two.png";
 import BigRightArrow from "assets/images/big-right-arrow.png";
@@ -21,6 +21,7 @@ import { ReactComponent as Two } from "assets/images/two.svg";
 import { ReactComponent as Three } from "assets/images/three.svg";
 import { ReactComponent as Four } from "assets/images/four.svg";
 import { ReactComponent as Five } from "assets/images/five.svg";
+import { ReactComponent as PhoneIcon } from "assets/images/phone.svg";
 
 import {
   accordionData,
@@ -165,36 +166,82 @@ const ActionSteps = () => {
   const icons = [<One />, <Two />, <Three />, <Four />, <Five />];
 
   return (
-    <Grid
-      container
-      spacing={2}
-      justifyContent="center"
-      className="action-steps-container"
-    >
-      {steps.map((step, index) => (
-        <Grid item phone={12} xxxs={5} xxs={3} xs={3} md={3} lg={2} key={index}>
-          <Box className="box-container">
-            {icons[index]}
-            <Typography
-              mt={4}
-              sx={{ display: { phone: "none", xxxs: "block" } }}
-              variant="h3"
-              className="bold"
+    <>
+      <Box sx={{ display: { phone: "none", xxxs: "block" } }}>
+        <Grid
+          container
+          spacing={2}
+          justifyContent="center"
+          className="action-steps-container"
+        >
+          {steps.map((step, index) => (
+            <Grid
+              item
+              phone={12}
+              xxxs={5}
+              xxs={3}
+              xs={3}
+              md={3}
+              lg={2}
+              key={index}
             >
-              "{step}"
-            </Typography>
-            <Typography
-              mt={4}
-              sx={{ display: { phone: "block", xxxs: "none" } }}
-              variant="h3"
-              className="bold"
-            >
-              "{step}"
-            </Typography>
-          </Box>
+              <Box className="box-container">
+                {icons[index]}
+                <Typography
+                  mt={4}
+                  sx={{ display: { phone: "none", xxxs: "block" } }}
+                  variant="h3"
+                  className="bold"
+                >
+                  "{step}"
+                </Typography>
+                <Typography
+                  mt={4}
+                  sx={{ display: { phone: "block", xxxs: "none" } }}
+                  variant="h3"
+                  className="bold"
+                >
+                  "{step}"
+                </Typography>
+              </Box>
+            </Grid>
+          ))}
         </Grid>
-      ))}
-    </Grid>
+      </Box>
+      <Box sx={{ display: { phone: "block", xxxs: "none" } }}>
+        {steps.map((step, index) => (
+          <Box
+            key={index}
+            sx={{
+              display: "flex",
+              justifyContent: index % 2 === 0 ? "flex-start" : "flex-start",
+            }}
+          >
+            <Box
+              key={index}
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: 2,
+                mt: 3,
+                width: "90%",
+              }}
+            >
+              <Typography variant="h1" className="bold primary">
+                {index}|
+              </Typography>
+              <Typography
+                sx={{ display: { phone: "block", xxxs: "none" } }}
+                variant="h3"
+                className="bold"
+              >
+                {step}
+              </Typography>
+            </Box>
+          </Box>
+        ))}
+      </Box>
+    </>
   );
 };
 
@@ -204,19 +251,28 @@ const Home = () => {
       <Grid
         container
         sx={{
-          display: { phone: "none", xxxs: "none", xxs: "none", xs: "flex" },
+          display: {
+            phone: "none",
+            xxxs: "none",
+            xxs: "none",
+            xs: "flex",
+            backgroundColor: colors.background,
+          },
         }}
       >
         <Grid item xs={12}>
-          <Box className="lady-img-box" sx={{ mt: -30, zIndex: 1 }}>
-            <img src={LadyWithBackground} alt="lady" className="img" />
+          <Box
+            className="lady-img-box"
+            sx={{ mt: 6, zIndex: 1, mb: -0.6, ml: 7 }}
+          >
+            <img src={LadyBg} alt="lady" className="img" />
           </Box>
         </Grid>
-        <Grid item md={6} xs={7} sx={{ position: "absolute", right: 0 }}>
+        <Grid item md={6} xs={6} sx={{ position: "absolute", right: 0 }}>
           <Box
             sx={{
-              pt: { xxs: 5, xs: 5, sm: 10, md: 25, lg: 25, xl: 35 },
-              pr: 10,
+              pt: { xxs: 5, xs: 15, sm: 20, md: 25, lg: 25, xl: 30 },
+              pr: { md: 10, sm: 5 },
             }}
           >
             <Typography variant="h2" className="red bold">
@@ -302,6 +358,37 @@ const Home = () => {
               </Box>
             </Box>
           </Box>
+          <Box sx={{ display: "flex", justifyContent: "center", mt: 5 }}>
+            <Box
+              sx={{
+                display: { phone: "none", xxxs: "flex", xxs: "none" },
+                alignItems: "center",
+                gap: 2,
+              }}
+            >
+              <PhoneIcon style={{ width: 35, height: 35 }} />
+              <Typography variant="h3" className="bold secondary">
+                <a
+                  href="tel:01.84.80.40.37"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+                  01.84.80.40.37
+                </a>
+              </Typography>
+            </Box>
+            <Box
+              sx={{
+                display: { phone: "flex", xxxs: "none" },
+                alignItems: "center",
+                gap: 2,
+              }}
+            >
+              <PhoneIcon style={{ width: 30, height: 30 }} />
+              <Typography variant="h3" className="bold secondary">
+                01.84.80.40.37
+              </Typography>
+            </Box>
+          </Box>
         </Grid>
       </Grid>
 
@@ -309,7 +396,7 @@ const Home = () => {
         sx={{
           px: { phone: 5, xxxs: 5, xxs: 5, xs: 15 },
           pb: 15,
-          mt: { phone: 5, xxxs: 5, xxs: 7, xs: 0 },
+          mt: { phone: 5, xxxs: 5, xxs: 7, xs: 10 },
         }}
       >
         <GreenTitle title="Pourquoi nous choisir ?" />

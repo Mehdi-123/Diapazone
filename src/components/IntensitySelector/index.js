@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -7,11 +7,14 @@ import colors from "index.scss";
 
 import Wrapper from "./wrapper";
 
-const IntensitySelector = ({ label, subLabel }) => {
-  const [selectedOption, setSelectedOption] = useState("Minimum");
-
+const IntensitySelector = ({
+  label,
+  subLabel,
+  selectedOption,
+  onOptionChange,
+}) => {
   const handleOptionClick = (option) => {
-    setSelectedOption(option);
+    onOptionChange(option);
   };
 
   return (
@@ -19,13 +22,13 @@ const IntensitySelector = ({ label, subLabel }) => {
       <Typography
         sx={{ marginBottom: "20px" }}
         variant="h3"
-        className="bold secondary"
+        className="bold black"
       >
         {label}
       </Typography>
       <Typography
         sx={{ marginBottom: "20px" }}
-        variant="h3"
+        variant="h4"
         className="semi-bold black"
       >
         {subLabel}

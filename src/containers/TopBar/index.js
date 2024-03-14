@@ -18,7 +18,7 @@ import Wrapper from "./wrapper";
 const links = [
   { text: "Obtenir un tarif", path: "/formulaire" },
   { text: "À propos", path: "/a-propos" },
-  { icon: <PhoneIcon />, text: "01.84.80.40.37", path: "" },
+  { text: "01.84.80.40.37", path: "tel:01.84.80.40.37" },
 ];
 
 const StyledDrawer = styled(Drawer)(() => ({
@@ -69,24 +69,49 @@ const TopBar = () => {
               }}
             />
           </IconButton>
-          {links.map(({ icon, text, path }) => (
-            <Link key={path} to={path} style={{ textDecoration: "none" }}>
-              <Box
-                sx={{
-                  display: { phone: "none", xxxs: "none", xxs: "flex" },
-                  alignItems: "center",
-                  marginLeft: { phone: "auto", xxxs: "auto", xxs: 0 },
-                }}
-              >
-                {icon && React.cloneElement(icon, { className: "phone-icon" })}
-                <Typography
-                  variant="h3"
-                  className={`text bold ${pathname === path ? "selected" : ""}`}
-                >
-                  {text}
-                </Typography>
-              </Box>
-            </Link>
+          {links.map(({ text, path }) => (
+            <React.Fragment key={path}>
+              {path.startsWith("tel:") ? (
+                <a href={path} style={{ textDecoration: "none" }}>
+                  <Box
+                    sx={{
+                      display: { phone: "none", xxxs: "none", xxs: "flex" },
+                      alignItems: "center",
+                      marginLeft: { phone: "auto", xxxs: "auto", xxs: 0 },
+                    }}
+                  >
+                    <PhoneIcon className="phone-icon" />
+                    <Typography
+                      variant="h3"
+                      className={`text bold ${
+                        pathname === path ? "selected" : ""
+                      }`}
+                    >
+                      {text}
+                    </Typography>
+                  </Box>
+                </a>
+              ) : (
+                <Link to={path} style={{ textDecoration: "none" }}>
+                  <Box
+                    sx={{
+                      display: { phone: "none", xxxs: "none", xxs: "flex" },
+                      alignItems: "center",
+                      marginLeft: { phone: "auto", xxxs: "auto", xxs: 0 },
+                    }}
+                  >
+                    <Typography
+                      variant="h3"
+                      className={`text bold ${
+                        pathname === path ? "selected" : ""
+                      }`}
+                    >
+                      {text}
+                    </Typography>
+                  </Box>
+                </Link>
+              )}
+            </React.Fragment>
           ))}
         </Box>
       </Box>
@@ -96,20 +121,24 @@ const TopBar = () => {
         onClose={toggleDrawer(false)}
       >
         <List>
-          {links.map(({ text, path, icon }) => (
+          {links.map(({ text, path }) => (
             <ListItem
               key={text}
-              component={Link}
+              component={path.startsWith("tel:") ? "a" : Link}
               to={path}
+              href={path}
               onClick={toggleDrawer(false)}
             >
               <Box
                 sx={{ display: "flex", alignItems: "center", mb: 3, gap: 1 }}
               >
-                {icon && <PhoneIcon width={23} />}
-                <Typography variant="h3" className="bold secondary">
-                  {text}
-                </Typography>
+                {path.startsWith("tel:") ? (
+                  <></>
+                ) : (
+                  <Typography variant="h3" className="bold secondary">
+                    {text}
+                  </Typography>
+                )}
               </Box>
             </ListItem>
           ))}

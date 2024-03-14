@@ -6,6 +6,8 @@ $white: #fcfcf5;
 $background: #fcfcf5;
 $buttonBackground: #ffcf9d;
 $disabled: #859e90;
+$disabledBlack: #afafaf;
+$disabledButtonBackground: #fff6ec;
 
 :export {
   primary: $primary;
@@ -67,6 +69,11 @@ body {
   &:hover {
     background-color: $primary !important;
   }
+}
+
+.MuiButton-root.Mui-disabled {
+  color: $disabledBlack !important;
+  background-color: $disabledButtonBackground !important;
 }
 
 .MuiStepLabel-iconContainer {

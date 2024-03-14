@@ -11,20 +11,21 @@ const InputText = ({
   value,
   disabled,
   email,
+  error,
 }) => {
   return (
     <Box>
       <Typography
         sx={{ marginBottom: "25px" }}
         variant="h3"
-        className="bold secondary"
+        className="bold black"
       >
         {label}
       </Typography>
       {subLabel && (
         <Typography
           sx={{ marginBottom: "25px", width: { phone: "100%", xxxs: "55%" } }}
-          variant="h3"
+          variant="h4"
           className="semi-bold color"
         >
           {subLabel}
@@ -45,6 +46,11 @@ const InputText = ({
           />
         )}
       />
+      {error && (
+        <Typography variant="h4" className="bold red" sx={{ mt: 2 }}>
+          {error.message}
+        </Typography>
+      )}
     </Box>
   );
 };

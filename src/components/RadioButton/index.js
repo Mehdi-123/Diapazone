@@ -43,7 +43,7 @@ const RadioButton = ({ label, name, disabled, options, control, value }) => {
       <Typography
         sx={{ marginBottom: "20px" }}
         variant="h3"
-        className="bold secondary"
+        className="bold black"
       >
         {label}
       </Typography>

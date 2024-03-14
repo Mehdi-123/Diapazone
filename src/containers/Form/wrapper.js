@@ -1,11 +1,17 @@
 import { styled } from "@mui/material/styles";
 import { Box } from "@mui/material";
 
+import colors from "index.scss";
+
 const Wrapper = styled(Box)`
-  background-image: url("src/assets/images/background-motif.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  .box-date {
+    &:hover {
+      cursor: pointer;
+    }
+    &.selected {
+      border: 2px solid ${colors.secondary};
+    }
+  }
 `;
 
 export default Wrapper;

@@ -1,18 +1,18 @@
 import { Controller } from "react-hook-form";
-import { fr } from "date-fns/locale";
+import { de } from "date-fns/locale";
 
 import { Box, Typography } from "@mui/material";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 
-const InputDate = ({ label, name, control, disabled }) => {
+const InputDate = ({ label, name, control, disabled, error }) => {
   return (
     <Box>
       <Typography
         sx={{ marginBottom: "20px" }}
         variant="h3"
-        className="bold secondary"
+        className="bold black"
       >
         {label}
       </Typography>
@@ -20,7 +20,7 @@ const InputDate = ({ label, name, control, disabled }) => {
         control={control}
         name={name}
         render={({ field: { onChange, value, ref } }) => (
-          <LocalizationProvider adapterLocale={fr} dateAdapter={AdapterDayjs}>
+          <LocalizationProvider adapterLocale={de} dateAdapter={AdapterDateFns}>
             <DatePicker
               onChange={onChange}
               ref={ref}
@@ -32,6 +32,11 @@ const InputDate = ({ label, name, control, disabled }) => {
           </LocalizationProvider>
         )}
       />
+      {error && (
+        <Typography variant="h4" className="bold red" sx={{ mt: 2 }}>
+          {error.message}
+        </Typography>
+      )}
     </Box>
   );
 };
