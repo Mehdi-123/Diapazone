@@ -21,7 +21,7 @@ const CookiesManagement = () => {
   };
 
   useEffect(() => {
-    if (!localStorage.getItem("cookiesAccepted")) {
+    if (localStorage.getItem("cookiesAccepted")) {
       localStorage.setItem("cookiesAccepted", "false");
     }
   }, []);
@@ -34,7 +34,7 @@ const CookiesManagement = () => {
         buttonStyle={{ display: "none" }}
         style={{ background: colors.secondary, padding: 30, opacity: 0.95 }}
       >
-        <Box sx={{ width: "95%" }}>
+        <Box sx={{ width: "90%" }}>
           <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
             <Link component="button" onClick={handleHideBanner}>
               <Typography

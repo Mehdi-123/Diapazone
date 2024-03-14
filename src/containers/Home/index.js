@@ -385,7 +385,12 @@ const Home = () => {
             >
               <PhoneIcon style={{ width: 30, height: 30 }} />
               <Typography variant="h3" className="bold secondary">
-                01.84.80.40.37
+                <a
+                  href="tel:01.84.80.40.37"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+                  01.84.80.40.37
+                </a>
               </Typography>
             </Box>
           </Box>
