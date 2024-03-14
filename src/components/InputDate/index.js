@@ -1,5 +1,5 @@
 import { Controller } from "react-hook-form";
-import { de } from "date-fns/locale";
+import { fr } from "date-fns/locale";
 
 import { Box, Typography } from "@mui/material";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
@@ -20,7 +20,7 @@ const InputDate = ({ label, name, control, disabled, error }) => {
         control={control}
         name={name}
         render={({ field: { onChange, value, ref } }) => (
-          <LocalizationProvider adapterLocale={de} dateAdapter={AdapterDateFns}>
+          <LocalizationProvider adapterLocale={fr} dateAdapter={AdapterDateFns}>
             <DatePicker
               onChange={onChange}
               ref={ref}
