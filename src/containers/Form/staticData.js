@@ -58,4 +58,4 @@ export const childrenNumber = [
   { value: "4", label: "4" },
 ];
 
-export const steps = ["Profile", "Besoins", "Coordonnées"];
+export const steps = ["Votre profil", "Vos besoins", "Vos coordonnées"];

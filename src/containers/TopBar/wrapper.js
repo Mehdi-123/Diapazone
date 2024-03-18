@@ -33,9 +33,10 @@ const Wrapper = styled(Box)`
     }
   }
   .top-bar {
-    background-color: ${colors.background};
+    max-width: 2200px;
+    margin: 0 auto;
     height: 170px;
-    padding: 0 120px;
+    padding: 0 100px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -50,6 +51,11 @@ const Wrapper = styled(Box)`
     .top-bar {
       padding: 0 50px;
       flex-direction: row-reverse;
+    }
+  }
+  @media (max-width: 1300px) {
+    .top-bar {
+      padding: 0 40px;
     }
   }
   @media (max-width: 500px) {

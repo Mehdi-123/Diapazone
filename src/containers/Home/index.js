@@ -8,14 +8,14 @@ import { Box, Button, Typography, Rating, Grid } from "@mui/material";
 
 import GreenTitle from "components/GreenTitle";
 import CustomAccordion from "components/CustomAccordion";
-import LadyBg from "assets/images/lady-without-bg.png";
+import LadyBg from "assets/images/la_dame.png";
 import ContractOne from "assets/images/contract-one.png";
 import ContractTwo from "assets/images/contract-two.png";
 import BigRightArrow from "assets/images/big-right-arrow.png";
+import ArrowGif from "assets/images/giphy.gif";
 import { ReactComponent as LeftArrow } from "assets/images/left-arrow.svg";
 import { ReactComponent as RightArrow } from "assets/images/right-arrow.svg";
 import { ReactComponent as IdentityCercle } from "assets/images/identity-cercle.svg";
-import { ReactComponent as RoundedArrow } from "assets/images/rounded-arrow.svg";
 import { ReactComponent as One } from "assets/images/one.svg";
 import { ReactComponent as Two } from "assets/images/two.svg";
 import { ReactComponent as Three } from "assets/images/three.svg";
@@ -36,9 +36,11 @@ const TestimonialsCarousel = () => {
   const settings = {
     dots: false,
     infinite: true,
-    speed: 500,
+    speed: 1000,
     slidesToShow: 3,
     slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
     prevArrow: <LeftArrow />,
     nextArrow: <RightArrow />,
   };
@@ -46,9 +48,11 @@ const TestimonialsCarousel = () => {
   const responsiveSettings = {
     dots: false,
     infinite: true,
-    speed: 500,
+    speed: 1000,
     slidesToShow: 2,
     slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
     prevArrow: <LeftArrow />,
     nextArrow: <RightArrow />,
   };
@@ -56,9 +60,11 @@ const TestimonialsCarousel = () => {
   const phoneResponsiveSettings = {
     dots: false,
     infinite: true,
-    speed: 500,
+    speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
     prevArrow: <LeftArrow />,
     nextArrow: <RightArrow />,
   };
@@ -87,7 +93,7 @@ const TestimonialsCarousel = () => {
                     className="rating"
                   />
                 </Box>
-                <Typography mt={2} variant="h4" className="feedback-text">
+                <Typography variant="h4" className="feedback-text">
                   {testimonial.feedback}
                 </Typography>
               </Box>
@@ -248,160 +254,156 @@ const ActionSteps = () => {
 const Home = () => {
   return (
     <Wrapper>
-      <Grid
-        container
-        sx={{
-          display: {
-            phone: "none",
-            xxxs: "none",
-            xxs: "none",
-            xs: "flex",
-            backgroundColor: colors.background,
-          },
-        }}
-      >
-        <Grid item xs={12}>
-          <Box
-            className="lady-img-box"
-            sx={{ mt: 6, zIndex: 1, mb: -0.6, ml: 7 }}
-          >
-            <img src={LadyBg} alt="lady" className="img" />
-          </Box>
-        </Grid>
-        <Grid item md={6} xs={6} sx={{ position: "absolute", right: 0 }}>
-          <Box
-            sx={{
-              pt: { xxs: 5, xs: 15, sm: 20, md: 25, lg: 25, xl: 30 },
-              pr: { md: 10, sm: 5 },
-            }}
-          >
-            <Typography variant="h2" className="red bold">
-              Une MUTUELLE santé adaptée à votre tempo financier
-            </Typography>
-            <Typography sx={{ mt: 5 }} variant="h3" className="black bold">
-              L'harmonie parfaite entre économies et garanties renforcées !
-            </Typography>
-            <Typography sx={{ mt: 5 }} variant="h3" className="black bold">
-              Jusqu'à 470 d'économies*
-            </Typography>
-            <Box sx={{ display: "flex", mt: 5 }}>
-              <RoundedArrow />
-              <Box sx={{ mt: 2, ml: 2 }}>
-                <Link to="/formulaire" style={{ textDecoration: "none" }}>
-                  <Button>J'obtiens mon tarif</Button>
-                </Link>
-              </Box>
-            </Box>
-          </Box>
-        </Grid>
-      </Grid>
-
-      <Grid
-        container
-        sx={{
-          display: { xxs: "block", xs: "none" },
-          backgroundColor: colors.background,
-          px: { phone: 2, xxxs: 5, xxs: 10 },
-          pt: { phone: 2, xxxs: 5, xxs: 10 },
-          pb: 10,
-        }}
-      >
-        <Grid item xs={12}>
-          <Box>
-            <Typography
-              sx={{
-                textAlign: { phone: "center", xxxs: "center", xxs: "left" },
-              }}
-              variant="h2"
-              className="red bold"
-            >
-              Une MUTUELLE santé adaptée à votre tempo financier
-            </Typography>
-            <Typography
-              sx={{
-                mt: 5,
-                textAlign: { phone: "center", xxxs: "center", xxs: "left" },
-              }}
-              variant="h3"
-              className="black bold"
-            >
-              L'harmonie parfaite entre économies et garanties renforcées !
-            </Typography>
-            <Typography
-              sx={{
-                mt: 5,
-                textAlign: { phone: "center", xxxs: "center", xxs: "left" },
-              }}
-              variant="h3"
-              className="black bold"
-            >
-              Jusqu'à 470 d'économies*
-            </Typography>
-            <Box sx={{ display: "flex", mt: 5 }}>
-              <Box
-                sx={{
-                  display: { phone: "none", xxxs: "none", xxs: "block" },
-                  mr: 2,
-                }}
-              >
-                <RoundedArrow />
-              </Box>
-              <Box
-                sx={{
-                  mt: 2,
-                  mx: { phone: "auto", xxxs: "auto", xxs: 0 },
-                }}
-              >
-                <Link to="/formulaire" style={{ textDecoration: "none" }}>
-                  <Button>J'obtiens mon tarif</Button>
-                </Link>
-              </Box>
-            </Box>
-          </Box>
-          <Box sx={{ display: "flex", justifyContent: "center", mt: 5 }}>
-            <Box
-              sx={{
-                display: { phone: "none", xxxs: "flex", xxs: "none" },
-                alignItems: "center",
-                gap: 2,
-              }}
-            >
-              <PhoneIcon style={{ width: 35, height: 35 }} />
-              <Typography variant="h3" className="bold secondary">
-                <a
-                  href="tel:01.84.80.40.37"
-                  style={{ textDecoration: "none", color: "inherit" }}
-                >
-                  01.84.80.40.37
-                </a>
-              </Typography>
-            </Box>
-            <Box
-              sx={{
-                display: { phone: "flex", xxxs: "none" },
-                alignItems: "center",
-                gap: 2,
-              }}
-            >
-              <PhoneIcon style={{ width: 30, height: 30 }} />
-              <Typography variant="h3" className="bold secondary">
-                <a
-                  href="tel:01.84.80.40.37"
-                  style={{ textDecoration: "none", color: "inherit" }}
-                >
-                  01.84.80.40.37
-                </a>
-              </Typography>
-            </Box>
-          </Box>
-        </Grid>
-      </Grid>
-
       <Box
         sx={{
-          px: { phone: 5, xxxs: 5, xxs: 5, xs: 15 },
+          backgroundColor: colors.background,
+        }}
+      >
+        <Grid
+          container
+          sx={{
+            display: {
+              phone: "none",
+              xxxs: "none",
+              xxs: "flex",
+            },
+            pb: 2,
+            maxWidth: "2200px",
+            mx: "auto",
+            px: { xxs: "30px", xs: "100px" },
+            alignItems: "center",
+          }}
+        >
+          <Grid item xxs={4.9} xs={5.5} sm={5} md={4.5} lg={4} xl={4}>
+            <Box className="lady-img-box">
+              <img src={LadyBg} alt="lady" className="img" />
+            </Box>
+          </Grid>
+          <Grid item xxs={7.1} xs={6.5} sm={7} md={7.5} lg={8} xl={8}>
+            <Box>
+              <Typography variant="h2" className="red bold">
+                Une MUTUELLE santé adaptée à votre tempo financier
+              </Typography>
+              <Typography sx={{ mt: 5 }} variant="h3" className="primary bold">
+                L'harmonie parfaite entre économies et garanties renforcées !
+              </Typography>
+              <Box
+                sx={{ display: "flex", alignItems: "center", mt: 1, gap: 3 }}
+              >
+                <Typography variant="h3" className="black bold">
+                  Jusqu'à 470 d'économies*
+                </Typography>
+                <img src={ArrowGif} alt="arrow" width={80} />
+              </Box>
+              <Box>
+                <Link to="/formulaire" style={{ textDecoration: "none" }}>
+                  <Button>J'obtiens mon tarif</Button>
+                </Link>
+              </Box>
+            </Box>
+          </Grid>
+        </Grid>
+
+        <Grid
+          container
+          sx={{
+            display: { xxxs: "block", xxs: "none" },
+            px: { phone: 2, xxxs: 5, xxs: 10 },
+            pt: { phone: 2, xxxs: 5, xxs: 10 },
+            maxWidth: "2200px",
+            mx: "auto",
+            pb: 10,
+          }}
+        >
+          <Grid item xs={12}>
+            <Box>
+              <Typography
+                sx={{
+                  textAlign: { phone: "center", xxxs: "center", xxs: "left" },
+                }}
+                variant="h2"
+                className="red bold"
+              >
+                Une MUTUELLE santé adaptée à votre tempo financier
+              </Typography>
+              <Typography
+                sx={{
+                  mt: 5,
+                  textAlign: { phone: "center", xxxs: "center", xxs: "left" },
+                }}
+                variant="h3"
+                className="primary bold"
+              >
+                L'harmonie parfaite entre économies et garanties renforcées !
+              </Typography>
+              <Typography
+                sx={{
+                  textAlign: { phone: "center", xxxs: "center", xxs: "left" },
+                  mt: 4,
+                }}
+                variant="h3"
+                className="black bold"
+              >
+                Jusqu'à 470 d'économies*
+              </Typography>
+              <Box
+                sx={{
+                  mt: 4,
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+              >
+                <Link to="/formulaire" style={{ textDecoration: "none" }}>
+                  <Button>J'obtiens mon tarif</Button>
+                </Link>
+              </Box>
+            </Box>
+            <Box sx={{ display: "flex", justifyContent: "center", mt: 5 }}>
+              <Box
+                sx={{
+                  display: { phone: "none", xxxs: "flex", xxs: "none" },
+                  alignItems: "center",
+                  gap: 2,
+                }}
+              >
+                <PhoneIcon style={{ width: 35, height: 35 }} />
+                <Typography variant="h3" className="bold secondary">
+                  <a
+                    href="tel:01.84.80.40.37"
+                    style={{ textDecoration: "none", color: "inherit" }}
+                  >
+                    01.84.80.40.37
+                  </a>
+                </Typography>
+              </Box>
+              <Box
+                sx={{
+                  display: { phone: "flex", xxxs: "none" },
+                  alignItems: "center",
+                  gap: 2,
+                }}
+              >
+                <PhoneIcon style={{ width: 30, height: 30 }} />
+                <Typography variant="h3" className="bold secondary">
+                  <a
+                    href="tel:01.84.80.40.37"
+                    style={{ textDecoration: "none", color: "inherit" }}
+                  >
+                    01.84.80.40.37
+                  </a>
+                </Typography>
+              </Box>
+            </Box>
+          </Grid>
+        </Grid>
+      </Box>
+      <Box
+        sx={{
+          px: { phone: 5, xxxs: 5, xxs: "35px", xs: "100px" },
           pb: 15,
           mt: { phone: 5, xxxs: 5, xxs: 7, xs: 10 },
+          maxWidth: "2200px",
+          mx: "auto",
         }}
       >
         <GreenTitle title="Pourquoi nous choisir ?" />
@@ -454,7 +456,11 @@ const Home = () => {
                 }}
               >
                 <Box sx={{ textAlign: "center" }}>
-                  <img src={ContractOne} alt="contract-one" />
+                  <img
+                    src={ContractOne}
+                    style={{ width: "200px" }}
+                    alt="contract-one"
+                  />
                   <Typography
                     sx={{
                       margin: { phone: "10px 20px 0", xxxs: "10px 60px 0" },
@@ -467,11 +473,19 @@ const Home = () => {
                 </Box>
 
                 <Box sx={{ display: { phone: "none", xxxs: "block" }, mr: 2 }}>
-                  <img src={BigRightArrow} alt="right-arrow" />
+                  <img
+                    src={BigRightArrow}
+                    style={{ width: "40px" }}
+                    alt="right-arrow"
+                  />
                 </Box>
 
                 <Box sx={{ textAlign: "center", mt: { phone: 4, xxxs: 0 } }}>
-                  <img src={ContractTwo} alt="contract-two" />
+                  <img
+                    src={ContractTwo}
+                    style={{ width: "170px" }}
+                    alt="contract-two"
+                  />
                   <Typography
                     sx={{ margin: "10px 60px 0" }}
                     variant="h4"

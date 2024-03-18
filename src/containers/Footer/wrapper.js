@@ -4,14 +4,16 @@ import { Box } from "@mui/material";
 import colors from "../../index.scss";
 
 const Wrapper = styled(Box)`
+  background: ${colors.secondary};
   .footer-container {
-    background: ${colors.secondary};
-    padding: 60px 100px 40px;
+    max-width: 2200px;
+    margin: 0 auto;
+    padding: 60px 80px 60px;
     .footer-top {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 50px;
+      margin-bottom: 60px;
       .icons-container {
         display: flex;
         align-items: center;
@@ -23,6 +25,13 @@ const Wrapper = styled(Box)`
         display: flex;
         gap: 80px;
         margin-bottom: 40px;
+        .link {
+          text-decoration: none;
+          &:hover {
+            text-decoration: underline;
+            color: white;
+          }
+        }
       }
       .bottom-container {
         margin-bottom: 100px;

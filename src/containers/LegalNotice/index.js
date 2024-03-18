@@ -3,7 +3,6 @@ import * as React from "react";
 import { Box, Typography } from "@mui/material";
 
 import GreenTitle from "components/GreenTitle";
-import BackgroundMotif from "assets/images/background-motif.png";
 
 import { faqData } from "./staticData";
 
@@ -11,20 +10,15 @@ const LegalNotice = () => {
   return (
     <Box
       sx={{
-        padding: { phone: "25px 30px", xxxs: "30px 40px", xxs: "100px 140px" },
-        position: "relative",
-      }}
+        maxWidth: "2200px",
+        margin: "0 auto",
+        padding: {
+          phone: "25px 30px",
+          xxxs: "40px 50px",
+          xxs: "40px 50px",
+          xs: "80px 100px",
+        },      }}
     >
-      <img
-        src={BackgroundMotif}
-        alt="contract-one"
-        style={{
-          position: "absolute",
-          bottom: "-150px",
-          right: "0",
-          zIndex: -1,
-        }}
-      />
       <Box sx={{ marginBottom: "60px" }}>
         <GreenTitle title="Mentions légales" />
       </Box>
@@ -38,7 +32,7 @@ const LegalNotice = () => {
       </Typography>
       {faqData.map((data, index) => (
         <Box key={index}>
-          <Typography variant="h3" className="secondary mb-15 bold">
+          <Typography variant="h3" className="primary mb-15 bold">
             {data.title}
           </Typography>
           <Typography

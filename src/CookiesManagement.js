@@ -21,7 +21,7 @@ const CookiesManagement = () => {
   };
 
   useEffect(() => {
-    if (localStorage.getItem("cookiesAccepted")) {
+    if (!localStorage.getItem("cookiesAccepted")) {
       localStorage.setItem("cookiesAccepted", "false");
     }
   }, []);

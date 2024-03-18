@@ -12,7 +12,7 @@ const InputDate = ({ label, name, control, disabled, error }) => {
       <Typography
         sx={{ marginBottom: "20px" }}
         variant="h3"
-        className="bold black"
+        className="bold primary"
       >
         {label}
       </Typography>

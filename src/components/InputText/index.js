@@ -18,7 +18,7 @@ const InputText = ({
       <Typography
         sx={{ marginBottom: "25px" }}
         variant="h3"
-        className="bold black"
+        className="bold primary"
       >
         {label}
       </Typography>
@@ -26,7 +26,7 @@ const InputText = ({
         <Typography
           sx={{ marginBottom: "25px", width: { phone: "100%", xxxs: "55%" } }}
           variant="h4"
-          className="semi-bold color"
+          className="semi-bold black"
         >
           {subLabel}
         </Typography>

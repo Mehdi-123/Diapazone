@@ -46,73 +46,75 @@ const TopBar = () => {
 
   return (
     <Wrapper>
-      <Box className="top-bar">
-        <Box sx={{ zIndex: 99 }}>
-          <Link to="/accueil" style={{ textDecoration: "none" }}>
-            <Logo className="logo-size" />
-          </Link>
-        </Box>
-        <Box className="buttons">
-          <IconButton
-            size="large"
-            edge="end"
-            color="inherit"
-            aria-label="menu"
-            sx={{ display: { phone: "block", xxxs: "block", xxs: "none" } }}
-            onClick={toggleDrawer(true)}
-          >
-            <MenuRoundedIcon
-              sx={{
-                width: { phone: 40, xxxs: 50 },
-                height: { phone: 40, xxxs: 50 },
-                color: colors.secondary,
-              }}
-            />
-          </IconButton>
-          {links.map(({ text, path }) => (
-            <React.Fragment key={path}>
-              {path.startsWith("tel:") ? (
-                <a href={path} style={{ textDecoration: "none" }}>
-                  <Box
-                    sx={{
-                      display: { phone: "none", xxxs: "none", xxs: "flex" },
-                      alignItems: "center",
-                      marginLeft: { phone: "auto", xxxs: "auto", xxs: 0 },
-                    }}
-                  >
-                    <PhoneIcon className="phone-icon" />
-                    <Typography
-                      variant="h3"
-                      className={`text bold ${
-                        pathname === path ? "selected" : ""
-                      }`}
+      <Box sx={{ backgroundColor: colors.background }}>
+        <Box className="top-bar">
+          <Box sx={{ zIndex: 99 }}>
+            <Link to="/accueil" style={{ textDecoration: "none" }}>
+              <Logo className="logo-size" />
+            </Link>
+          </Box>
+          <Box className="buttons">
+            <IconButton
+              size="large"
+              edge="end"
+              color="inherit"
+              aria-label="menu"
+              sx={{ display: { phone: "block", xxxs: "block", xxs: "none" } }}
+              onClick={toggleDrawer(true)}
+            >
+              <MenuRoundedIcon
+                sx={{
+                  width: { phone: 40, xxxs: 50 },
+                  height: { phone: 40, xxxs: 50 },
+                  color: colors.secondary,
+                }}
+              />
+            </IconButton>
+            {links.map(({ text, path }) => (
+              <React.Fragment key={path}>
+                {path.startsWith("tel:") ? (
+                  <a href={path} style={{ textDecoration: "none" }}>
+                    <Box
+                      sx={{
+                        display: { phone: "none", xxxs: "none", xxs: "flex" },
+                        alignItems: "center",
+                        marginLeft: { phone: "auto", xxxs: "auto", xxs: 0 },
+                      }}
                     >
-                      {text}
-                    </Typography>
-                  </Box>
-                </a>
-              ) : (
-                <Link to={path} style={{ textDecoration: "none" }}>
-                  <Box
-                    sx={{
-                      display: { phone: "none", xxxs: "none", xxs: "flex" },
-                      alignItems: "center",
-                      marginLeft: { phone: "auto", xxxs: "auto", xxs: 0 },
-                    }}
-                  >
-                    <Typography
-                      variant="h3"
-                      className={`text bold ${
-                        pathname === path ? "selected" : ""
-                      }`}
+                      <PhoneIcon className="phone-icon" />
+                      <Typography
+                        variant="h3"
+                        className={`text bold ${
+                          pathname === path ? "selected" : ""
+                        }`}
+                      >
+                        {text}
+                      </Typography>
+                    </Box>
+                  </a>
+                ) : (
+                  <Link to={path} style={{ textDecoration: "none" }}>
+                    <Box
+                      sx={{
+                        display: { phone: "none", xxxs: "none", xxs: "flex" },
+                        alignItems: "center",
+                        marginLeft: { phone: "auto", xxxs: "auto", xxs: 0 },
+                      }}
                     >
-                      {text}
-                    </Typography>
-                  </Box>
-                </Link>
-              )}
-            </React.Fragment>
-          ))}
+                      <Typography
+                        variant="h3"
+                        className={`text bold ${
+                          pathname === path ? "selected" : ""
+                        }`}
+                      >
+                        {text}
+                      </Typography>
+                    </Box>
+                  </Link>
+                )}
+              </React.Fragment>
+            ))}
+          </Box>
         </Box>
       </Box>
       <StyledDrawer

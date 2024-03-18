@@ -12,12 +12,12 @@ const customStyles = {
     borderWidth: "2px",
     borderRadius: "20px",
     backgroundColor: colors.background,
-    height: "75px",
+    height: "70px",
     fontFamily: "Nunito",
-    width: "500px",
+    width: "450px",
     fontSize: "25px",
     fontWeight: "bold",
-    color: colors.secondary,
+    color: colors.black,
     padding: "10px !important",
     boxShadow: "0",
     "&:hover": {
@@ -26,11 +26,11 @@ const customStyles = {
   }),
   singleValue: (provided) => ({
     ...provided,
-    color: colors.secondary,
+    color: colors.black,
   }),
   placeholder: (provided) => ({
     ...provided,
-    color: colors.secondary,
+    color: colors.black,
   }),
   option: (provided, state) => ({
     ...provided,
@@ -46,7 +46,7 @@ const customStyles = {
     zIndex: 99,
     backgroundColor: colors.white,
     borderRadius: "20px",
-    width: "500px",
+    width: "450px",
     fontFamily: "Nunito",
     fontSize: "25px",
   }),
@@ -72,7 +72,7 @@ const responsiveCustomStyles = {
     width: "300px",
     fontSize: "20px",
     fontWeight: "bold",
-    color: colors.secondary,
+    color: colors.black,
     padding: "5px !important",
     boxShadow: "0",
     "&:hover": {
@@ -81,11 +81,11 @@ const responsiveCustomStyles = {
   }),
   singleValue: (provided) => ({
     ...provided,
-    color: colors.secondary,
+    color: colors.black,
   }),
   placeholder: (provided) => ({
     ...provided,
-    color: colors.secondary,
+    color: colors.black,
   }),
   option: (provided, state) => ({
     ...provided,
@@ -147,7 +147,7 @@ const SelectInput = ({ error, label, name, control, value, options }) => {
       <Typography
         sx={{ marginBottom: "20px" }}
         variant="h3"
-        className="bold black"
+        className="bold primary"
       >
         {label}
       </Typography>

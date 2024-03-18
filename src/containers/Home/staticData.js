@@ -60,30 +60,37 @@ export const testimonials = [
   },
   {
     author: "Stéphane",
-    date: "12.2023",
+    date: "02.2024",
     rating: 4,
     feedback: "Service Très réactif, Mme Lambert est toujours à l’écoute…",
   },
   {
     author: "Claudine",
-    date: "06.2023",
-    rating: 3,
+    date: "02.2024",
+    rating: 5,
     feedback:
       "Des tarifs compétitifs ,j’ai réalisé 300 euros d’économies. Merci Diapzone.",
   },
   {
-    author: "Mehdi Harit",
-    date: "06.2023",
+    author: "Florence",
+    date: "01.2024",
     rating: 5,
     feedback:
-      "Très bon contact avec mon conseiller, les explications sont claires et il n'a pas hésité à prendre du temps pour que tout soit bien clair",
+      "La dame que j'ai eu par téléphone m'a bien renseigné, elle a pris le temps de m'expliquer et de m'accompagner dans toutes les démarches. Merci.",
   },
   {
-    author: "Mehdi Harit",
-    date: "06.2023",
+    author: "Chantal",
+    date: "03.2024",
+    rating: 5,
+    feedback:
+      "Je suis très satisfaite, rapide, et simple. les prix sont corrects. Merci",
+  },
+  {
+    author: "Hervé",
+    date: "03.2024",
     rating: 4,
     feedback:
-      "Très bon contact avec mon conseiller, les explications sont claires et il n'a pas hésité à prendre du temps pour que tout soit bien clair",
+      "Je suis satisfait du service, les prix me convient, les conseillers sont toujours aimable et prennent en charge mes demandes.",
   },
 ];
 

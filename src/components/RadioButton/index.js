@@ -16,8 +16,8 @@ const RadioButton = ({ label, name, disabled, options, control, value }) => {
   const Circle = ({ selected }) => (
     <Box
       sx={{
-        width: { phone: "25px", xxxs: "35px" },
-        height: { phone: "25px", xxxs: "35px" },
+        width: { phone: "25px", xxxs: "30px" },
+        height: { phone: "25px", xxxs: "30px" },
         borderRadius: "50%",
         border: "1px solid",
         borderColor: selected ? colors.secondary : colors.black,
@@ -31,7 +31,7 @@ const RadioButton = ({ label, name, disabled, options, control, value }) => {
         <CheckIcon
           sx={{
             color: colors.white,
-            fontSize: { phone: "17px", xxxs: "25px" },
+            fontSize: { phone: "17px", xxxs: "20px" },
           }}
         />
       )}
@@ -43,7 +43,7 @@ const RadioButton = ({ label, name, disabled, options, control, value }) => {
       <Typography
         sx={{ marginBottom: "20px" }}
         variant="h3"
-        className="bold black"
+        className="bold primary"
       >
         {label}
       </Typography>
@@ -56,7 +56,10 @@ const RadioButton = ({ label, name, disabled, options, control, value }) => {
             aria-labelledby={name}
             name={name}
             value={value}
-            sx={{ flexDirection: "row", gap: "40px" }}
+            sx={{
+              flexDirection: "row",
+              gap: { phone: "10px", xxxs: "30px", xxs: "40px" },
+            }}
           >
             {options?.map((item, index) => (
               <FormControlLabel
@@ -74,8 +77,12 @@ const RadioButton = ({ label, name, disabled, options, control, value }) => {
                   >
                     <Box
                       sx={{
-                        height: { phone: "210px", xxxs: "320px" },
-                        width: { phone: "170px", xxxs: "280px" },
+                        height: {
+                          phone: "210px",
+                          xxxs: "260px",
+                          xxs: "280px",
+                        },
+                        width: { phone: "170px", xxxs: "220px", xxs: "250px" },
                         display: "flex",
                         flexDirection: "column",
                         alignItems: "center",
@@ -94,11 +101,7 @@ const RadioButton = ({ label, name, disabled, options, control, value }) => {
                           <Box
                             sx={{ display: { phone: "none", xxxs: "block" } }}
                           >
-                            <img
-                              src={item.img}
-                              alt={item.label}
-                              width="100px"
-                            />
+                            <img src={item.img} alt={item.label} width="80px" />
                           </Box>
                           <Box
                             sx={{ display: { phone: "block", xxxs: "none" } }}

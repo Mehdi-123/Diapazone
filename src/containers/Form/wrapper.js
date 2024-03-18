@@ -12,6 +12,12 @@ const Wrapper = styled(Box)`
       border: 2px solid ${colors.secondary};
     }
   }
+  .link {
+    color: ${colors.secondary};
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 `;
 
 export default Wrapper;

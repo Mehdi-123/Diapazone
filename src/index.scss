@@ -85,15 +85,15 @@ body {
   border: solid 2px;
   border-color: $secondary !important;
   background-color: $background;
-  width: 500px !important;
-  height: 75px;
+  width: 450px !important;
+  height: 70px;
   padding: 5px 20px 5px 5px !important;
   font-size: 25px !important;
   font-weight: 800 !important;
 }
 
 .MuiInputBase-input {
-  color: $secondary !important;
+  color: $black !important;
 }
 
 .MuiOutlinedInput-notchedOutline {
@@ -123,8 +123,8 @@ body {
   border-color: $secondary !important;
   border-radius: 20px !important;
   background-color: $background;
-  height: 75px;
-  width: 500px !important;
+  height: 70px;
+  width: 450px !important;
   padding: 20px;
   font-size: 25px !important;
   font-weight: 800 !important;
@@ -175,8 +175,17 @@ body {
 }
 
 .logo-size {
-  width: 300px;
-  height: 300px;
+  width: 260px;
+  height: 100px;
+}
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.fade-in.active {
+  opacity: 1;
 }
 
 @media (max-width: 1885px) {
@@ -211,7 +220,8 @@ body {
 
 @media (max-width: 720px) {
   .logo-size {
-    width: 150px;
+    width: 200px;
+    height: 60px;
   }
   body {
     font-size: 18px;

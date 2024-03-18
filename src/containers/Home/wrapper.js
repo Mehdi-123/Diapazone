@@ -13,8 +13,7 @@ const Wrapper = styled(Box)`
   .lady-img-box {
     z-index: -1;
     .img {
-      width: 45%;
-      height: auto;
+      width: 450px;
     }
   }
   .slider-box-container {
@@ -31,8 +30,9 @@ const Wrapper = styled(Box)`
         margin-bottom: 15px;
       }
       .feedback-text {
-        padding: 0 130px;
         color: ${colors.black};
+        margin: 16px auto;
+        max-width: 65%;
       }
       .mb-10 {
         margin-bottom: 10px;
@@ -98,17 +98,17 @@ const Wrapper = styled(Box)`
     .desc-container {
       padding: 20px 30px;
     }
+    .slider-box-container {
+      .text-container {
+        .feedback-text {
+          max-width: 45% !important;
+        }
+      }
+    }
     .identity-cercle {
       &.size {
         &.smaller {
           width: 55%;
-        }
-      }
-    }
-    .slider-box-container {
-      .text-container {
-        .feedback-text {
-          padding: 0 180px !important;
         }
       }
     }
@@ -119,29 +119,11 @@ const Wrapper = styled(Box)`
         width: 70% !important;
       }
     }
-    .slider-box-container {
-      .text-container {
-        .feedback-text {
-          &.size {
-            padding: 0 100px !important;
-          }
-        }
-      }
-    }
   }
   @media (max-width: 495px) {
     .identity-cercle {
       &.size {
         width: 95% !important;
-      }
-    }
-    .slider-box-container {
-      .text-container {
-        .feedback-text {
-          &.size {
-            padding: 0 50px !important;
-          }
-        }
       }
     }
   }
@@ -154,9 +136,7 @@ const Wrapper = styled(Box)`
     .slider-box-container {
       .text-container {
         .feedback-text {
-          &.size {
-            padding: 0 280px;
-          }
+          max-width: 35%;
         }
       }
     }
@@ -165,19 +145,18 @@ const Wrapper = styled(Box)`
     .identity-cercle {
       width: 75%;
     }
-    .slider-box-container {
-      .text-container {
-        .feedback-text {
-          padding: 0 110px;
-        }
+    .lady-img-box {
+      z-index: -1;
+      .img {
+        width: 400px;
       }
     }
   }
-  @media (max-width: 1678px) {
+  @media (min-width: 1920px) {
     .slider-box-container {
       .text-container {
         .feedback-text {
-          padding: 0 90px;
+          max-width: 50%;
         }
       }
     }

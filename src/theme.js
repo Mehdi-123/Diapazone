@@ -7,13 +7,13 @@ const theme = createTheme({
       fontSize: "3em",
     },
     h2: {
-      fontSize: "2em",
+      fontSize: "1.7em",
     },
     h3: {
-      fontSize: "1em",
+      fontSize: "0.9em",
     },
     h4: {
-      fontSize: ".67em",
+      fontSize: ".6em",
     },
     h5: {
       fontSize: ".5em",
