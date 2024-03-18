@@ -261,7 +261,6 @@ const Form = () => {
   }, [showNext]);
 
   const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
 
   const storeData = async () => {
     setLoading(true);
@@ -337,7 +336,6 @@ const Form = () => {
     try {
       await db.collection("data").add(cleanData);
       console.log("Data stored successfully");
-      setSuccess(true);
     } catch (error) {
       console.error("Error storing data:", error);
     } finally {
@@ -358,6 +356,12 @@ const Form = () => {
       [label]: value,
     }));
   };
+
+  useEffect(() => {
+    if (activeStep === 3) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [activeStep]);
 
   return (
     <Wrapper
@@ -738,10 +742,12 @@ const Form = () => {
                     <Box
                       sx={{
                         width: {
-                          phone: "300px",
+                          phone: "320px",
                           xxxs: "450px",
                           xxs: "450px",
                           xs: "450px",
+                          sm: "450px",
+                          md: "500px",
                         },
                       }}
                     >
@@ -1019,7 +1025,7 @@ const Form = () => {
               variant="indeterminate"
             />
           ) : (
-            <Box ref={success && !loading ? inputRef : null}>
+            <Box>
               <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
                 <Typography variant="h2" className="primary bold">
                   Formulaire validé

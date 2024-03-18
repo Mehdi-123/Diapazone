@@ -58,7 +58,8 @@ const RadioButton = ({ label, name, disabled, options, control, value }) => {
             value={value}
             sx={{
               flexDirection: "row",
-              gap: { phone: "10px", xxxs: "30px", xxs: "40px" },
+              gap: { phone: "5px", xxxs: "30px", xxs: "40px" },
+              flexWrap: "nowrap",
             }}
           >
             {options?.map((item, index) => (
@@ -69,71 +70,62 @@ const RadioButton = ({ label, name, disabled, options, control, value }) => {
                 label={
                   <Box
                     sx={{
+                      height: {
+                        phone: "190px",
+                        xxxs: "260px",
+                        xxs: "280px",
+                      },
+                      width: {
+                        phone: "148px",
+                        xxxs: "220px",
+                        xxs: "250px",
+                      },
                       display: "flex",
                       flexDirection: "column",
                       alignItems: "center",
-                      textAlign: "center",
+                      justifyContent: "center",
+                      gap: "10px",
+                      borderRadius: "20px",
+                      border:
+                        value === item.value
+                          ? `2px solid ${colors.secondary}`
+                          : "none",
+                      backgroundColor: colors.background,
                     }}
                   >
-                    <Box
+                    {item.img && (
+                      <>
+                        <Box sx={{ display: { phone: "none", xxxs: "block" } }}>
+                          <img src={item.img} alt={item.label} width="80px" />
+                        </Box>
+                        <Box sx={{ display: { phone: "block", xxxs: "none" } }}>
+                          <img src={item.img} alt={item.label} width="60px" />
+                        </Box>
+                      </>
+                    )}
+                    <Typography
+                      variant="h2"
                       sx={{
-                        height: {
-                          phone: "210px",
-                          xxxs: "260px",
-                          xxs: "280px",
-                        },
-                        width: { phone: "170px", xxxs: "220px", xxs: "250px" },
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        gap: "10px",
-                        borderRadius: "20px",
-                        border:
-                          value === item.value
-                            ? `2px solid ${colors.secondary}`
-                            : "none",
-                        backgroundColor: colors.background,
+                        margin: "15px 0 0",
+                        fontWeight: "bold",
+                        display: { phone: "none", xxxs: "block" },
                       }}
+                      className={value === item.value ? "secondary" : "black"}
                     >
-                      {item.img && (
-                        <>
-                          <Box
-                            sx={{ display: { phone: "none", xxxs: "block" } }}
-                          >
-                            <img src={item.img} alt={item.label} width="80px" />
-                          </Box>
-                          <Box
-                            sx={{ display: { phone: "block", xxxs: "none" } }}
-                          >
-                            <img src={item.img} alt={item.label} width="70px" />
-                          </Box>
-                        </>
-                      )}
-                      <Typography
-                        variant="h2"
-                        sx={{
-                          margin: "15px 0 0",
-                          fontWeight: "bold",
-                          display: { phone: "none", xxxs: "block" },
-                        }}
-                        className={value === item.value ? "secondary" : "black"}
-                      >
-                        {item.label}
-                      </Typography>
-                      <Typography
-                        variant="h3"
-                        sx={{
-                          margin: "5px 0 0",
-                          fontWeight: "bold",
-                          display: { phone: "block", xxxs: "none" },
-                        }}
-                        className={value === item.value ? "secondary" : "black"}
-                      >
-                        {item.label}
-                      </Typography>
-                      <Circle selected={value === item.value} />
-                    </Box>
+                      {item.label}
+                    </Typography>
+                    <Typography
+                      variant="h3"
+                      sx={{
+                        margin: "5px 0 0",
+                        fontWeight: "bold",
+                        display: { phone: "block", xxxs: "none" },
+                      }}
+                      className={value === item.value ? "secondary" : "black"}
+                    >
+                      {item.label}
+                    </Typography>
+                    <Circle selected={value === item.value} />
                   </Box>
                 }
                 sx={{ zIndex: 0 }}
