@@ -312,14 +312,14 @@ const Home = () => {
             pt: { phone: 2, xxxs: 5, xxs: 10 },
             maxWidth: "2200px",
             mx: "auto",
-            pb: 10,
+            pb: 6,
           }}
         >
           <Grid item xs={12}>
             <Box>
               <Typography
                 sx={{
-                  textAlign: { phone: "center", xxxs: "center", xxs: "left" },
+                  textAlign: "left",
                 }}
                 variant="h2"
                 className="red bold"
@@ -329,32 +329,43 @@ const Home = () => {
               <Typography
                 sx={{
                   mt: 5,
-                  textAlign: { phone: "center", xxxs: "center", xxs: "left" },
+                  textAlign: "left",
                 }}
                 variant="h3"
                 className="primary bold"
               >
                 L'harmonie parfaite entre économies et garanties renforcées !
               </Typography>
-              <Typography
-                sx={{
-                  textAlign: { phone: "center", xxxs: "center", xxs: "left" },
-                  mt: 4,
-                }}
-                variant="h3"
-                className="black bold"
+              <Box
+                sx={{ display: "flex", alignItems: "center", mt: 1, gap: 3 }}
               >
-                Jusqu'à 470 d'économies*
-              </Typography>
+                <Typography
+                  sx={{
+                    textAlign: "left",
+                  }}
+                  variant="h3"
+                  className="black bold"
+                >
+                  Jusqu'à 470 d'économies*
+                </Typography>
+                <img src={ArrowGif} alt="arrow" width={60} />
+              </Box>
               <Box
                 sx={{
-                  mt: 4,
-                  display: "flex",
-                  justifyContent: "center",
+                  mt: 1,
                 }}
               >
                 <Link to="/formulaire" style={{ textDecoration: "none" }}>
-                  <Button>J'obtiens mon tarif</Button>
+                  <Button
+                    sx={{
+                      transform: {
+                        phone: "translateX(-10%) scale(0.8)",
+                        xxxs: "translateX(0) scale(1)",
+                      },
+                    }}
+                  >
+                    J'obtiens mon tarif
+                  </Button>
                 </Link>
               </Box>
             </Box>
@@ -383,8 +394,12 @@ const Home = () => {
                   gap: 2,
                 }}
               >
-                <PhoneIcon style={{ width: 30, height: 30 }} />
-                <Typography variant="h3" className="bold secondary">
+                <PhoneIcon style={{ width: 25, height: 25 }} />
+                <Typography
+                  variant="h3"
+                  className="secondary"
+                  sx={{ fontWeight: "bold" }}
+                >
                   <a
                     href="tel:01.84.80.40.37"
                     style={{ textDecoration: "none", color: "inherit" }}
@@ -408,16 +423,32 @@ const Home = () => {
       >
         <GreenTitle title="Pourquoi nous choisir ?" />
         <Grid
-          mt={10}
           textAlign="center"
           alignItems="center"
           justifyContent="space-evenly"
           container
-          gap={3}
+          gap={0.2}
         >
           {reasonsToChoose.map((reason, index) => (
-            <Grid key={index} sx={{ mb: { phone: 2, xxxs: 0 } }}>
-              <Box>{reason.icon}</Box>
+            <Grid
+              key={index}
+              sx={{ mt: { phone: 4, xxxs: 10 } }}
+              phone={12}
+              xxxs={5}
+              xxs={3}
+            >
+              <Box
+                sx={{
+                  transform: {
+                    xs: "scale(1)",
+                    xxs: "scale(0.9)",
+                    xxxs: "scale(1.1)",
+                    phone: "scale(0.7)",
+                  },
+                }}
+              >
+                {reason.icon}
+              </Box>
               <Typography my={3} variant="h3" className="secondary bold">
                 {reason.title}
               </Typography>
@@ -440,7 +471,7 @@ const Home = () => {
                 textAlign: { phone: "center", xxxs: "none" },
               }}
             >
-              <GreenTitle title="On s'occupe de tout !" />
+              <GreenTitle title="On s'occupe de tout!" />
             </Grid>
             <Grid
               item

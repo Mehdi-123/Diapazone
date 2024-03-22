@@ -161,6 +161,27 @@ const Wrapper = styled(Box)`
       }
     }
   }
+  @media (max-width: 540px) {
+    .slider-box-container {
+      .text-container {
+        transform: translate(-52%, -45%);
+        .feedback-text {
+          max-width: 60% !important;
+          font-size: 0.7em;
+        }
+      }
+    }
+  }
+  @media (max-width: 350px) {
+    .slider-box-container {
+      .text-container {
+        .feedback-text {
+          max-width: 60% !important;
+          font-size: 0.6em;
+        }
+      }
+    }
+  }
 `;
 
 export default Wrapper;

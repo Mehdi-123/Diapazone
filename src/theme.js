@@ -13,7 +13,7 @@ const theme = createTheme({
       fontSize: "0.9em",
     },
     h4: {
-      fontSize: ".6em",
+      fontSize: ".75em",
     },
     h5: {
       fontSize: ".5em",
