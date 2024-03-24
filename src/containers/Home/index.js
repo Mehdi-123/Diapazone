@@ -474,17 +474,18 @@ const Home = () => {
           <Grid container alignItems="center">
             <Grid
               item
-              xs={4}
+              xs={3}
               sx={{
                 mx: { phone: "auto", xxxs: "auto", xxs: "auto", xs: "none" },
-                mb: { phone: 2, xxxs: 5 },
-                textAlign: { phone: "center", xxxs: "none" },
+                mb: { phone: 2, xxxs: 5, xxs: 5, xs: 0 },
+                textAlign: { phone: "center", xxxs: "left", xs: "left" },
               }}
             >
               <GreenTitle title="On s'occupe de tout!" />
             </Grid>
             <Grid
               item
+              phone={12}
               xxs={12}
               xs={8}
               sx={{ m: { phone: "0 auto", xxxs: "none" } }}
