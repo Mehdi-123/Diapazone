@@ -369,10 +369,10 @@ const Form = () => {
         maxWidth: "2200px",
         margin: "0 auto",
         padding: {
-          phone: "25px 30px",
-          xxxs: "40px 50px",
-          xxs: "40px 50px",
-          xs: "80px 100px",
+          phone: "25px 30px 150px",
+          xxxs: "40px 50px 200px",
+          xxs: "40px 50px 200px",
+          xs: "80px 70px 250px",
         },
       }}
     >

@@ -8,12 +8,10 @@ const Wrapper = styled(Box)`
   .footer-container {
     max-width: 2200px;
     margin: 0 auto;
-    padding: 60px 80px 60px;
     .footer-top {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 60px;
       .icons-container {
         display: flex;
         align-items: center;
@@ -24,7 +22,6 @@ const Wrapper = styled(Box)`
       .top-container {
         display: flex;
         gap: 80px;
-        margin-bottom: 40px;
         .link {
           text-decoration: none;
           &:hover {
@@ -42,11 +39,6 @@ const Wrapper = styled(Box)`
     }
     .mb-20 {
       margin-bottom: 20px;
-    }
-  }
-  @media (max-width: 650px) {
-    .footer-container {
-      padding: 20px 40px;
     }
   }
 `;

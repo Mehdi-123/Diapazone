@@ -30,6 +30,7 @@ const CustomAccordion = ({ accordionData }) => {
           className="accordion"
         >
           <AccordionSummary
+            sx={{ mt: 3 }}
             className="accordion-summary"
             expandIcon={
               <AccordionPlus
@@ -54,7 +55,7 @@ const CustomAccordion = ({ accordionData }) => {
               </Box>
             ) : null}
           </AccordionSummary>
-          <AccordionDetails className="pt-20">
+          <AccordionDetails sx={{ pt: 2, px: 0 }}>
             <Typography className="accordion-content medium" variant="h3">
               {item.content}
             </Typography>

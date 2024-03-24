@@ -8,10 +8,6 @@ const Wrapper = styled(Box)`
     box-shadow: none;
     .accordion-summary {
       border-bottom: 2px solid ${colors.primary};
-      .accordion-title {
-        margin-top: 50px;
-        margin-bottom: 15px;
-      }
       .accordion-dash {
         margin-left: auto;
         margin-top: 20px;
@@ -19,9 +15,6 @@ const Wrapper = styled(Box)`
     }
     .accordion-content {
       line-height: 1.5;
-    }
-    .pt-20 {
-      padding-top: 20px;
     }
   }
   .MuiAccordion-root::before {

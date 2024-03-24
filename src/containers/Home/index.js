@@ -195,8 +195,13 @@ const ActionSteps = () => {
                 {icons[index]}
                 <Typography
                   mt={4}
-                  sx={{ display: { phone: "none", xxxs: "block" } }}
-                  variant="h3"
+                  sx={{
+                    display: {
+                      phone: "none",
+                      xxxs: "block",
+                    },
+                  }}
+                  variant="h4"
                   className="bold"
                 >
                   "{step}"
@@ -270,7 +275,7 @@ const Home = () => {
             pb: 2,
             maxWidth: "2200px",
             mx: "auto",
-            px: { xxs: "30px", xs: "100px" },
+            px: { xxs: "30px", xs: "70px" },
             alignItems: "center",
           }}
         >
@@ -285,7 +290,7 @@ const Home = () => {
                 Une MUTUELLE santé adaptée à votre tempo financier
               </Typography>
               <Typography sx={{ mt: 5 }} variant="h3" className="primary bold">
-                L'harmonie parfaite entre économies et garanties renforcées !
+                L'harmonie parfaite entre économies et garanties renforcées!
               </Typography>
               <Box
                 sx={{ display: "flex", alignItems: "center", mt: 1, gap: 3 }}
@@ -328,13 +333,13 @@ const Home = () => {
               </Typography>
               <Typography
                 sx={{
-                  mt: 5,
+                  mt: 3,
                   textAlign: "left",
                 }}
                 variant="h3"
                 className="primary bold"
               >
-                L'harmonie parfaite entre économies et garanties renforcées !
+                L'harmonie parfaite entre économies et garanties renforcées!
               </Typography>
               <Box
                 sx={{ display: "flex", alignItems: "center", mt: 1, gap: 3 }}
@@ -414,14 +419,14 @@ const Home = () => {
       </Box>
       <Box
         sx={{
-          px: { phone: 5, xxxs: 5, xxs: "35px", xs: "100px" },
-          pb: 15,
-          mt: { phone: 5, xxxs: 5, xxs: 7, xs: 10 },
+          px: { phone: 3, xxxs: 5, xxs: "35px", xs: "70px" },
+          pb: 10,
+          mt: { phone: 4, xxxs: 6 },
           maxWidth: "2200px",
           mx: "auto",
         }}
       >
-        <GreenTitle title="Pourquoi nous choisir ?" />
+        <GreenTitle title="Pourquoi nous choisir?" />
         <Grid
           textAlign="center"
           alignItems="center"
@@ -432,7 +437,7 @@ const Home = () => {
           {reasonsToChoose.map((reason, index) => (
             <Grid
               key={index}
-              sx={{ mt: { phone: 4, xxxs: 10 } }}
+              sx={{ mt: { phone: 2, xxxs: 6 } }}
               phone={12}
               xxxs={5}
               xxs={3}
@@ -449,7 +454,12 @@ const Home = () => {
               >
                 {reason.icon}
               </Box>
-              <Typography my={3} variant="h3" className="secondary bold">
+              <Typography
+                my={{ phone: 1, xxxs: 3 }}
+                variant="h3"
+                sx={{ fontWeight: "bold" }}
+                className="secondary"
+              >
                 {reason.title}
               </Typography>
               {reason.description.map((desc, i) => (
@@ -460,14 +470,14 @@ const Home = () => {
             </Grid>
           ))}
         </Grid>
-        <Box className="desc-container">
+        <Box className="desc-container" sx={{ mt: { phone: 6, xxxs: 10 } }}>
           <Grid container alignItems="center">
             <Grid
               item
               xs={4}
               sx={{
                 mx: { phone: "auto", xxxs: "auto", xxs: "auto", xs: "none" },
-                mb: 5,
+                mb: { phone: 2, xxxs: 5 },
                 textAlign: { phone: "center", xxxs: "none" },
               }}
             >
@@ -487,11 +497,17 @@ const Home = () => {
                 }}
               >
                 <Box sx={{ textAlign: "center" }}>
-                  <img
-                    src={ContractOne}
-                    style={{ width: "200px" }}
-                    alt="contract-one"
-                  />
+                  <Box
+                    sx={{
+                      transform: { phone: "scale(0.8)", xxxs: "scale(1)" },
+                    }}
+                  >
+                    <img
+                      src={ContractOne}
+                      style={{ width: "200px" }}
+                      alt="contract-one"
+                    />
+                  </Box>
                   <Typography
                     sx={{
                       margin: { phone: "10px 20px 0", xxxs: "10px 60px 0" },
@@ -511,12 +527,18 @@ const Home = () => {
                   />
                 </Box>
 
-                <Box sx={{ textAlign: "center", mt: { phone: 4, xxxs: 0 } }}>
-                  <img
-                    src={ContractTwo}
-                    style={{ width: "170px" }}
-                    alt="contract-two"
-                  />
+                <Box sx={{ textAlign: "center", mt: { phone: 2, xxxs: 0 } }}>
+                  <Box
+                    sx={{
+                      transform: { phone: "scale(0.8)", xxxs: "scale(1)" },
+                    }}
+                  >
+                    <img
+                      src={ContractTwo}
+                      style={{ width: "170px" }}
+                      alt="contract-two"
+                    />
+                  </Box>
                   <Typography
                     sx={{ margin: "10px 60px 0" }}
                     variant="h4"
@@ -529,31 +551,31 @@ const Home = () => {
             </Grid>
           </Grid>
         </Box>
-        <Box mt={10}>
+        <Box mt={{ phone: 6, xxxs: 8 }}>
           <GreenTitle title="Plus de 5000 clients nous font confiance" />
-          <Typography mt={5} variant="h3" className="black bold mb-40">
+          <Typography mt={2} variant="h3" className="black bold mb-40">
             97% de clients satisfaits
           </Typography>
-          <Box sx={{ mt: { phone: 0, xxxs: 0, xxs: 2, xs: 7 } }}>
+          <Box sx={{ mt: { phone: 5, xxxs: 7 } }}>
             <TestimonialsCarousel />
           </Box>
         </Box>
-        <Box sx={{ mt: { phone: 0, xxxs: 0, xxs: 2, xs: 7 } }}>
-          <Box sx={{ mb: { phone: 5, xxxs: 5, xxs: 7 } }}>
+        <Box sx={{ mt: { phone: 6, xxxs: 8 } }}>
+          <Box sx={{ mb: { phone: 0, xxxs: 5 } }}>
             <GreenTitle title="Passez à l'action" />
           </Box>
           <ActionSteps />
         </Box>
-        <Box mt={10}>
+        <Box mt={{ phone: 6, xxxs: 8 }}>
           <GreenTitle title="On répond à vos questions!" />
           <Typography
-            mt={5}
+            mt={3}
             variant="h3"
             className="before-accordion-title mb-15"
           >
             L'assurance peut sembler très compliquée à première vue. C'est pour
             cela que nous mettons à votre disposition cette FAQ qui, on le
-            souhaite, répondra à toutes vos interrogations !
+            souhaite, répondra à toutes vos interrogations!
           </Typography>
           <CustomAccordion accordionData={accordionData} />
         </Box>

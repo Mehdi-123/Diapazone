@@ -47,7 +47,18 @@ const TopBar = () => {
   return (
     <Wrapper>
       <Box sx={{ backgroundColor: colors.background }}>
-        <Box className="top-bar">
+        <Box
+          className="top-bar"
+          sx={{
+            p: {
+              phone: "0 20px 0 5px",
+              xxxs: "0 30px 0 25px",
+              xxs: "0 30px",
+              xs: "0 70px",
+            },
+            height: { phone: "130px", xxxs: "170px" },
+          }}
+        >
           <Box sx={{ zIndex: 99 }}>
             <Link to="/accueil" style={{ textDecoration: "none" }}>
               <Logo className="logo-size" />

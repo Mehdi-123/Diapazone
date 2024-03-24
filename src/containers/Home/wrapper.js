@@ -51,7 +51,6 @@ const Wrapper = styled(Box)`
     background: ${colors.background};
     border-radius: 50px;
     padding: 40px 80px;
-    margin-top: 80px;
   }
   .action-steps-container {
     display: flex;
@@ -92,6 +91,7 @@ const Wrapper = styled(Box)`
   @media (max-width: 1813px) {
     .identity-cercle {
       width: 80%;
+      height: auto;
     }
   }
   @media (max-width: 820px) {

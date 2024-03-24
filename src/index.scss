@@ -175,7 +175,7 @@ body {
 }
 
 .logo-size {
-  width: 260px;
+  width: 220px;
   height: 100px;
 }
 
@@ -213,18 +213,12 @@ body {
 }
 
 @media (max-width: 720px) {
-  body {
-    font-size: 20px;
-  }
-}
-
-@media (max-width: 720px) {
   .logo-size {
     width: 150px;
-    height: 60px;
+    height: 50px;
   }
   body {
-    font-size: 18px;
+    font-size: 16px;
   }
   .MuiOutlinedInput-root {
     width: 300px !important;
