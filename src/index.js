@@ -4,7 +4,6 @@ import { BrowserRouter } from "react-router-dom";
 
 import { ThemeProvider } from "@mui/material/styles";
 
-import reportWebVitals from "reportWebVitals";
 import App from "App";
 import theme from "theme";
 import "index.scss";
@@ -22,5 +21,3 @@ root.render(
     </ThemeProvider>
   </React.StrictMode>
 );
-
-reportWebVitals();

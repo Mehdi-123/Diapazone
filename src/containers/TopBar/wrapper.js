@@ -1,4 +1,4 @@
-import { styled } from "@mui/system";
+import { styled } from "@mui/material/styles";
 import { Box } from "@mui/material";
 
 import colors from "../../index.scss";
